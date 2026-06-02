@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght=500;700;900&family=Inter:wght=300;400;500;600&display=swap');
 
         body {
             font-family: 'Inter', sans-serif;
@@ -125,17 +125,16 @@
                 left: 150%;
             }
 
-        /* --- NUEVO EQUILIBRIO: VISIBLES PERO CAMUFLADAS --- */
+        /* --- RELIQUIAS CAMUFLADAS --- */
         .divine-relic {
             cursor: pointer;
             position: relative;
-            font-size: 1.5rem; /* Tamaño sutil, no gigantesco */
-            color: #4b5563; /* Color apagado por defecto (Gris piedra/interfaz) */
-            opacity: 0.25; /* Camufladas con el fondo al inicio */
+            font-size: 1.5rem;
+            color: #4b5563;
+            opacity: 0.25;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        /* Cuando el usuario interactúa con la tarjeta general, el Dios "despierta" su color */
         .altar-card:hover .relic-mordrak {
             color: #f97316;
             opacity: 0.8;
@@ -175,7 +174,6 @@
             filter: brightness(1.5) !important;
         }
 
-        /* Estado Activado Final (Bucle de rotación mística permanente) */
         .divine-relic.activated {
             opacity: 1 !important;
             animation: godAwakened 2.5s infinite linear !important;
@@ -207,7 +205,7 @@
             }
         }
 
-        /* Estilos del Portal Secreto */
+        /* Portal Secreto */
         #secret-portal {
             max-height: 0;
             opacity: 0;
@@ -237,6 +235,8 @@
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             pointer-events: none;
             backdrop-filter: blur(12px);
+            width: 90%;
+            max-width: 450px;
         }
 
             .mystic-toast.show {
@@ -272,54 +272,54 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between pt-20">
 
     <!-- MENÚ DE NAVEGACIÓN -->
     <nav class="fixed top-0 w-full bg-black/80 backdrop-blur-xl z-50 border-b border-purple-500/15">
-        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <span class="text-purple-400 text-xl animate-pulse">✦</span>
-                <h1 class="text-xl md:text-2xl title-font tracking-[0.2em] glow-arcano text-white font-bold">GAMECOMUNITY</h1>
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2 sm:get-3">
+                <span class="text-purple-400 text-lg sm:text-xl animate-pulse">✦</span>
+                <h1 class="text-lg sm:text-2xl title-font tracking-[0.15em] sm:tracking-[0.2em] glow-arcano text-white font-bold whitespace-nowrap">GAMECOMUNITY</h1>
             </div>
-            <div class="flex items-center gap-8 text-base">
+            <div>
                 <a href="https://discord.gg/M9yHQQgW2a" target="_blank"
-                   class="btn-forja text-sm uppercase tracking-widest font-medium bg-gradient-to-r from-purple-700 to-indigo-800 px-6 py-3 rounded-xl flex items-center gap-2.5 text-white shadow-[0_0_20px_rgba(126,34,206,0.3)] hover:scale-105">
-                    <i class="fab fa-discord"></i> Unirse al Discord
+                   class="btn-forja text-xs uppercase tracking-widest font-medium bg-gradient-to-r from-purple-700 to-indigo-800 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl flex items-center gap-2 text-white shadow-[0_0_20px_rgba(126,34,206,0.3)] hover:scale-105 transition-transform">
+                    <i class="fab fa-discord"></i> <span class="hidden xs:inline">Discord</span><span class="inline xs:hidden">Unirse</span>
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- HERO VIEWPORT -->
-    <section class="hero-viewport h-screen flex items-center relative overflow-hidden">
-        <div class="absolute -left-32 top-1/4 w-[500px] h-[500px] bg-purple-600/5 blur-[150px] pointer-events-none"></div>
-        <div class="absolute -right-32 bottom-1/4 w-[500px] h-[500px] bg-indigo-500/5 blur-[150px] pointer-events-none"></div>
+    <section class="hero-viewport min-h-[calc(100vh-5rem)] flex items-center relative overflow-hidden py-16 md:py-24">
+        <div class="absolute -left-32 top-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-600/5 blur-[100px] md:blur-[150px] pointer-events-none"></div>
+        <div class="absolute -right-32 bottom-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-indigo-500/5 blur-[100px] md:blur-[150px] pointer-events-none"></div>
 
-        <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06] mb-8">
-                <span class="text-[10px] tracking-[0.3em] text-purple-400/80 font-medium uppercase">Comunidad Global Gaming</span>
+        <div class="max-w-5xl mx-auto px-6 text-center z-10 relative w-full">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06] mb-6 md:mb-8">
+                <span class="text-[9px] md:text-[10px] tracking-[0.3em] text-purple-400/80 font-medium uppercase">Comunidad Global Gaming</span>
             </div>
 
-            <h1 class="text-6xl md:text-8xl title-font font-black tracking-widest mb-8 glow-arcano text-white leading-tight">
+            <h1 class="text-4xl sm:text-6xl md:text-8xl title-font font-black tracking-wider md:tracking-widest mb-6 md:mb-8 glow-arcano text-white leading-tight break-words">
                 GAMECOMUNITY
             </h1>
 
-            <p class="text-lg md:text-xl text-purple-200/70 max-w-2xl mx-auto mb-12 font-light leading-relaxed tracking-wide">
+            <p class="text-base md:text-xl text-purple-200/70 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed tracking-wide">
                 Un nexo cósmico diseñado para los apasionados de los videojuegos. Juega partidas casuales, comparte universos alternos y forja lazos legendarios.
             </p>
 
-            <div class="flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center w-full px-4">
                 <a href="https://discord.gg/M9yHQQgW2a" target="_blank"
-                   class="btn-forja w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-purple-600 via-indigo-700 to-violet-800 rounded-2xl text-lg font-semibold text-white hover:scale-105 shadow-[0_0_30px_rgba(147,51,234,0.35)] flex items-center justify-center gap-4">
-                    <i class="fab fa-discord text-2xl"></i>
+                   class="btn-forja w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 bg-gradient-to-r from-purple-600 via-indigo-700 to-violet-800 rounded-2xl text-base md:text-lg font-semibold text-white hover:scale-105 shadow-[0_0_30px_rgba(147,51,234,0.35)] flex items-center justify-center gap-3 md:gap-4">
+                    <i class="fab fa-discord text-xl md:text-2xl"></i>
                     UNIRSE AL DISCORD
                 </a>
 
                 <!-- EL PORTAL DIVINO OCULTO -->
-                <div id="secret-portal">
+                <div id="secret-portal" class="w-full sm:w-auto">
                     <a href="tierra-denadie.html"
-                       class="btn-forja inline-flex px-12 py-5 border-2 border-amber-500 bg-amber-950/40 rounded-2xl text-base font-black text-amber-300 shadow-[0_0_50px_rgba(245,158,11,0.6)] hover:scale-105 transition-all duration-300 items-center gap-4 animate-pulse tracking-[0.15em]">
-                        <i class="fas fa-landmark text-amber-400 text-xl"></i>
+                       class="btn-forja inline-flex w-full sm:w-auto px-8 md:px-12 py-4 md:py-5 border-2 border-amber-500 bg-amber-950/40 rounded-2xl text-sm md:text-base font-black text-amber-300 shadow-[0_0_50px_rgba(245,158,11,0.6)] hover:scale-105 transition-all duration-300 items-center justify-center gap-3 md:gap-4 animate-pulse tracking-[0.15em]">
+                        <i class="fas fa-landmark text-amber-400 text-lg md:text-xl"></i>
                         INGRESAR A TIERRA DE NADIE
                     </a>
                 </div>
@@ -330,69 +330,67 @@
     </section>
 
     <!-- SECCIÓN DE CARACTERÍSTICAS -->
-    <section class="py-32 relative z-10 bg-[#020104] border-t border-purple-500/10">
+    <section class="py-20 md:py-32 relative z-10 bg-[#020104] border-t border-purple-500/10">
         <div class="max-w-6xl mx-auto px-6">
 
-            <div class="text-center mb-24">
-                <h2 class="text-3xl title-font tracking-[0.25em] text-white font-bold mb-4">MÓDULOS DEL REINO</h2>
-                <p class="text-xs text-purple-400/50 tracking-widest uppercase">Pasa el cursor por las tarjetas para revelar las reliquias de los Dioses</p>
+            <div class="text-center mb-16 md:mb-24">
+                <h2 class="text-2xl md:text-3xl title-font tracking-[0.20em] md:tracking-[0.25em] text-white font-bold mb-4">MÓDULOS DEL REINO</h2>
+                <!-- Spoiler quitado e intriga mejorada -->
+                <p class="text-xs text-purple-400/50 tracking-widest uppercase">Explora los vestigios del panteón y descubre sus secretos</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
 
-                <!-- TARJETA 1: MORDRAK (Fuego / Llama) -->
-                <div class="altar-card p-8 rounded-3xl flex flex-col justify-between items-start min-h-[290px]">
+                <!-- TARJETA 1: MORDRAK -->
+                <div class="altar-card p-6 md:p-8 rounded-3xl flex flex-col justify-between items-start min-h-[260px] md:min-h-[290px]">
                     <div class="altar-rune ar-tl"></div><div class="altar-rune ar-tr"></div>
                     <div class="altar-rune ar-bl"></div><div class="altar-rune ar-br"></div>
 
                     <div class="w-full flex justify-between items-center mb-6">
-                        <div class="text-2xl text-orange-500/40">
+                        <div class="text-xl md:text-2xl text-orange-500/40">
                             <i class="fas fa-gamepad"></i>
                         </div>
-                        <!-- Reliquia de Mordrak -->
-                        <i id="star1" class="fas fa-fire divine-relic relic-mordrak" title="Furia de Mordrak"></i>
+                        <i id="star1" class="fas fa-fire divine-relic relic-mordrak" title="???"></i>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-bold mb-3 text-white tracking-wide title-font">Juegos Random</h3>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white tracking-wide title-font">Juegos Random</h3>
                         <p class="text-gray-400 font-light text-sm leading-relaxed">Únete a partidas de Minecraft, Valorant, League o Roblox junto a escuadrones envueltos en la furia de la batalla.</p>
                     </div>
                 </div>
 
-                <!-- TARJETA 2: ALERION (Sombras / Ojo místico) -->
-                <div class="altar-card p-8 rounded-3xl flex flex-col justify-between items-start min-h-[290px]">
+                <!-- TARJETA 2: ALERION -->
+                <div class="altar-card p-6 md:p-8 rounded-3xl flex flex-col justify-between items-start min-h-[260px] md:min-h-[290px]">
                     <div class="altar-rune ar-tl"></div><div class="altar-rune ar-tr"></div>
                     <div class="altar-rune ar-bl"></div><div class="altar-rune ar-br"></div>
 
                     <div class="w-full flex justify-between items-center mb-6">
-                        <div class="text-2xl text-purple-500/40">
+                        <div class="text-xl md:text-2xl text-purple-500/40">
                             <i class="fas fa-users"></i>
                         </div>
-                        <!-- Reliquia de Alerion -->
-                        <i id="star2" class="fas fa-eye divine-relic relic-alerion" title="Sabiduría de Alerion"></i>
+                        <i id="star2" class="fas fa-eye divine-relic relic-alerion" title="???"></i>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-bold mb-3 text-white tracking-wide title-font">Conocer Gente</h3>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white tracking-wide title-font">Conocer Gente</h3>
                         <p class="text-gray-400 font-light text-sm leading-relaxed">Forja alianzas desde el silencio, planea la estrategia perfecta y comparte sabiduría ancestral en canales grupales.</p>
                     </div>
                 </div>
 
-                <!-- TARJETA 3: SERAPHYNE (Luna / Creciente) -->
-                <div class="altar-card p-8 rounded-3xl flex flex-col justify-between items-start min-h-[290px]">
+                <!-- TARJETA 3: SERAPHYNE -->
+                <div class="altar-card p-6 md:p-8 rounded-3xl flex flex-col justify-between items-start min-h-[260px] md:min-h-[290px]">
                     <div class="altar-rune ar-tl"></div><div class="altar-rune ar-tr"></div>
                     <div class="altar-rune ar-bl"></div><div class="altar-rune ar-br"></div>
 
                     <div class="w-full flex justify-between items-center mb-6">
-                        <div class="text-2xl text-teal-500/40">
+                        <div class="text-xl md:text-2xl text-teal-500/40">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <!-- Reliquia de Seraphyne -->
-                        <i id="star3" class="fas fa-moon divine-relic relic-seraphyne" title="Equilibrio de Seraphyne"></i>
+                        <i id="star3" class="fas fa-moon divine-relic relic-seraphyne" title="???"></i>
                     </div>
 
                     <div>
-                        <h3 class="text-2xl font-bold mb-3 text-white tracking-wide title-font">Actividades</h3>
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-white tracking-wide title-font">Actividades</h3>
                         <p class="text-gray-400 font-light text-sm leading-relaxed">Noches bajo la luz de la luna, dinámicas que fluyen como mareas místicas y un equilibrio cíclico organizado por el Staff.</p>
                     </div>
                 </div>
@@ -402,13 +400,13 @@
     </section>
 
     <!-- NOTIFICACIÓN MÍSTICA (TOAST) -->
-    <div id="mystic-toast" class="mystic-toast text-sm text-center title-font tracking-wider">
+    <div id="mystic-toast" class="mystic-toast text-xs md:text-sm text-center title-font tracking-wider">
         <span id="toast-text" class="text-purple-300"></span>
     </div>
 
     <!-- FOOTER -->
-    <footer class="py-12 bg-[#020104] text-center border-t border-purple-500/10 relative z-10">
-        <p class="text-[11px] text-gray-600 tracking-[0.2em] uppercase">© Gamecomunity • Registro de Almas Terrenales</p>
+    <footer class="py-8 md:py-12 bg-[#020104] text-center border-t border-purple-500/10 relative z-10">
+        <p class="text-[10px] md:text-[11px] text-gray-600 tracking-[0.2em] uppercase">© Gamecomunity • Registro de Almas Terrenales</p>
     </footer>
 
     <!-- LÓGICA DEL JUEGO DIVINO -->
