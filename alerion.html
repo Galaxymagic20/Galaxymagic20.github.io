@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerion - Dios de la Sabiduría y las Sombras</title>
+    <style>
+        /* --- Animaciones Místicas de Fantasía Oscura --- */
+        @keyframes entradaFluida {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes eclipseLatido {
+            0% {
+                box-shadow: 0 0 60px rgba(103, 58, 183, 0.25), inset 0 0 30px rgba(0,0,0,0.9);
+            }
+
+            50% {
+                box-shadow: 0 0 110px rgba(63, 81, 181, 0.5), inset 0 0 50px rgba(25, 10, 50, 0.8);
+            }
+
+            100% {
+                box-shadow: 0 0 60px rgba(103, 58, 183, 0.25), inset 0 0 30px rgba(0,0,0,0.9);
+            }
+        }
+
+        @keyframes flotarRunas {
+            0% {
+                transform: translateY(110vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(60px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flotarIcono {
+            0% {
+                transform: translateY(0px) scale(1);
+                filter: drop-shadow(0 0 15px rgba(149, 117, 205, 0.6));
+            }
+
+            50% {
+                transform: translateY(-12px) scale(1.05);
+                filter: drop-shadow(0 0 35px rgba(63, 81, 181, 0.9));
+            }
+
+            100% {
+                transform: translateY(0px) scale(1);
+                filter: drop-shadow(0 0 15px rgba(149, 117, 205, 0.6));
+            }
+        }
+
+        /* --- Configuración del Fondo y Niebla Abisal --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #09070f 0%, #040307 50%, #010103 100%);
+            color: #d1c4e9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+            /* El Cielo Estrellado de tu captura original */
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0), radial-gradient(rgba(149, 117, 205, 0.08) 1.5px, transparent 0);
+                background-size: 130px 130px, 220px 220px;
+                opacity: 0.7;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+        /* --- Elementos Decorativos de la Sabiduría Oculta --- */
+
+        /* El Gran Eclipse del Vacío */
+        .fondo-eclipse {
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(30,16,55,0.8) 0%, rgba(13,6,24,0.5) 45%, rgba(63,81,181,0.05) 70%, transparent 100%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            animation: eclipseLatido 7s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        /* Horizonte de Criptas y Conocimiento Perdido */
+        .fondo-biblioteca {
+            position: fixed;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 320px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.14;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%237e57c2' fill-opacity='1' d='M0,192L60,181.3C120,171,240,149,360,160C480,171,600,213,720,218.7C840,224,960,192,1080,170.7C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3Cpath%3E%3C/svg%3E");
+            background-size: cover;
+            filter: blur(2px) drop-shadow(0 -20px 30px rgba(103,58,183,0.2));
+        }
+
+        /* Estanterías de Criptas / Cadenas en las Esquinas */
+        .runas-izq, .runas-der {
+            position: fixed;
+            bottom: -10px;
+            width: 280px;
+            height: 85%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.12;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .runas-izq {
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z'/%3E%3C/svg%3E");
+            transform: rotate(15deg) scale(1.2);
+        }
+
+        .runas-der {
+            right: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4Z'/%3E%3C/svg%3E");
+            transform: scaleX(-1) rotate(15deg) scale(1.2);
+        }
+
+        /* Partículas Espectrales: Fragmentos de Almas y Runas */
+        .particula-oscura {
+            position: absolute;
+            background: radial-gradient(circle, rgba(149,117,205,0.7) 0%, transparent 75%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .ro1 {
+            left: 8%;
+            width: 6px;
+            height: 6px;
+            animation: flotarRunas 11s linear infinite;
+            animation-delay: 1s;
+        }
+
+        .ro2 {
+            left: 42%;
+            width: 11px;
+            height: 11px;
+            background: rgba(92,107,192,0.4);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: flotarRunas 15s linear infinite;
+            animation-delay: 3s;
+        }
+
+        .ro3 {
+            left: 78%;
+            width: 7px;
+            height: 7px;
+            animation: flotarRunas 13s linear infinite;
+            animation-delay: 0s;
+        }
+
+        .ro4 {
+            left: 22%;
+            width: 14px;
+            height: 14px;
+            background: rgba(149,117,205,0.3);
+            border-radius: 50% 10% 50% 10%;
+            animation: flotarRunas 18s linear infinite;
+            animation-delay: 6s;
+        }
+
+        /* --- Barra de Navegación --- */
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 40px;
+            box-sizing: border-box;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+            .navbar .brand {
+                font-weight: bold;
+                color: #ffffff;
+                text-shadow: 0 0 8px rgba(149,117,205,0.5);
+            }
+
+            .navbar a {
+                color: #b39ddb;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+                .navbar a:hover {
+                    color: #9575cd;
+                    text-shadow: 0 0 10px #9575cd;
+                }
+
+        /* --- Contenedor e Intro de Alerion --- */
+        .main-container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px 100px 20px;
+            z-index: 1;
+            box-sizing: border-box;
+        }
+
+        .header-section {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        /* Calavera de Sabiduría con Animación de Flotación */
+        .god-icon {
+            width: 90px;
+            height: 90px;
+            fill: url(#degradadoSombrasPremium);
+            margin-bottom: 15px;
+            animation: flotarIcono 5s ease-in-out infinite;
+            transition: transform 0.4s ease;
+        }
+
+            .god-icon:hover {
+                transform: scale(1.12) rotate(-10deg);
+            }
+
+        .god-name {
+            font-size: 4rem;
+            letter-spacing: 12px;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(103, 58, 183, 0.4);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+            .god-name:hover {
+                color: #f3e5f5;
+                letter-spacing: 16px;
+                text-shadow: 0 0 45px rgba(103, 58, 183, 0.9), 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+
+        .god-title {
+            font-size: 0.95rem;
+            letter-spacing: 6px;
+            margin-top: 15px;
+            color: #b39ddb;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+        }
+
+        /* --- Tarjeta del Guardián de los Secretos (Hover Abisal) --- */
+        .content-card {
+            background: rgba(5, 4, 8, 0.85);
+            border: 1px solid rgba(149, 117, 205, 0.18);
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: entradaFluida 1.5s ease-out;
+        }
+
+            /* Resplandor de vacío interno al hacer hover */
+            .content-card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(103, 58, 183, 0.16) 0%, transparent 60%);
+                opacity: 0;
+                transition: opacity 0.6s ease;
+                pointer-events: none;
+            }
+
+            .content-card:hover {
+                transform: translateY(-8px);
+                border-color: rgba(149, 117, 205, 0.45);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(103, 58, 183, 0.25);
+            }
+
+                .content-card:hover::before {
+                    opacity: 1;
+                }
+
+        /* Estilo de Textos de la Caja Coincidentes con tus Fotos */
+        .card-title {
+            color: #b39ddb;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(149, 117, 205, 0.2);
+            padding-bottom: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .content-card:hover .card-title {
+            color: #d1c4e9;
+            text-shadow: 0 0 15px rgba(209, 196, 233, 0.5);
+            padding-left: 8px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #b0bec5;
+            transition: color 0.4s ease;
+        }
+
+        .content-card:hover .card-text {
+            color: #eceff1;
+        }
+
+        .sub-title {
+            color: #9575cd;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        .status-text {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #455a64;
+            text-align: center;
+            margin-top: 30px;
+            letter-spacing: 1px;
+            transition: color 0.4s ease;
+        }
+
+        .content-card:hover .status-text {
+            color: #b39ddb;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fondo-eclipse"></div>
+    <div class="fondo-biblioteca"></div>
+    <div class="runas-izq"></div>
+    <div class="runas-der"></div>
+
+    <div class="particula-oscura ro1"></div>
+    <div class="particula-oscura ro2"></div>
+    <div class="particula-oscura ro3"></div>
+    <div class="particula-oscura ro4"></div>
+
+    <div class="navbar">
+        <div class="brand">✦ GAMECOMUNITY</div>
+        <div><a href="#">← Volver a los Dioses</a></div>
+    </div>
+
+    <div class="main-container">
+
+        <div class="header-section">
+            <svg class="god-icon" viewBox="0 0 24 24">
+                <defs>
+                    <linearGradient id="degradadoSombrasPremium" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff" />
+                        <stop offset="60%" stop-color="#d1c4e9" />
+                        <stop offset="100%" stop-color="#7e57c2" />
+                    </linearGradient>
+                </defs>
+                <path d="M12,2C7.03,2 3,6.03 3,11C3,14.46 4.96,17.46 7.83,18.94L8.91,21.11C9.11,21.5 Regular 9.5,21.75 10,21.75 10.38,21.56L12,20.75L13.63,21.56C14,21.75 14.5,21.5 14.71,21.11L15.79,18.94C18.66,17.46 20.62,14.46 20.62,11C20.62,6.03 16.59,2 12,2M9,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,11A1.5,1.5 0 0,1 9,9.5M15,9.5A1.5,1.5 0 0,1 16.5,8A1.5,1.5 0 0,1 18,9.5A1.5,1.5 0 0,1 16.5,11A1.5,1.5 0 0,1 15,9.5M12,14C13.1,14 14,14.9 14,16H10C10,14.9 10.9,14 12,14Z" opacity="0.2" />
+                <path d="M12,2C7.03,2 3,6.03 3,11C3,14.46 4.96,17.46 7.83,18.94L8.91,21.11C9.11,21.5 9.5,21.75 10,21.75 10.38,21.56L12,20.75L13.63,21.56C14,21.75 14.5,21.5 14.71,21.11L15.79,18.94C18.66,17.46 20.62,14.46 20.62,11C20.62,6.03 16.59,2 12,2M9,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,11A1.5,1.5 0 0,1 9,9.5M15,9.5A1.5,1.5 0 0,1 16.5,8A1.5,1.5 0 0,1 18,9.5A1.5,1.5 0 0,1 16.5,11A1.5,1.5 0 0,1 15,9.5M12,14C13.1,14 14,14.9 14,16H10C10,14.9 10.9,14 12,14Z" />
+            </svg>
+
+            <h1 class="god-name">Alerion</h1>
+            <div class="god-title">Dios de la Sabiduría y las Sombras</div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="card-title">El Guardián de los Secretos</h2>
+            <p class="card-text">
+                Alerion es el dios de la mente aguda y lo oculto. Señor de la sabiduría ancestral y las sombras, representa el conocimiento profundo, la estrategia brillante y la libertad absoluta. Gobierna desde el silencio del Vacío, tejiendo el destino mediante secretos olvidados. Sus seguidores no buscan la gloria con fuerza bruta, sino la victoria invisible: el cálculo perfecto que desarma al enemigo antes de que empiece la batalla
+            </p>
+
+            <h3 class="sub-title">Ventajas de sus Seguidores</h3>
+            <p class="status-text">— Esta sección se actualizará mas adelante —</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

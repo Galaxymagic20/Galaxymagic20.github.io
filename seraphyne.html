@@ -1,0 +1,426 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seraphyne - Diosa de la Luna y la Naturaleza</title>
+    <style>
+        /* --- Animaciones Místicas --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes lunaLatido {
+            0% {
+                box-shadow: 0 0 60px rgba(178, 223, 219, 0.2), inset 0 0 20px rgba(255,255,255,0.2);
+            }
+
+            50% {
+                box-shadow: 0 0 100px rgba(165, 214, 167, 0.4), inset 0 0 40px rgba(255,255,255,0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 60px rgba(178, 223, 219, 0.2), inset 0 0 20px rgba(255,255,255,0.2);
+            }
+        }
+
+        @keyframes flotarHojas {
+            0% {
+                transform: translateY(110vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(70px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flotarIcono {
+            0% {
+                transform: translateY(0px) scale(1);
+                filter: drop-shadow(0 0 15px rgba(165, 214, 167, 0.6));
+            }
+
+            50% {
+                transform: translateY(-12px) scale(1.05);
+                filter: drop-shadow(0 0 35px rgba(178, 223, 219, 0.9));
+            }
+
+            100% {
+                transform: translateY(0px) scale(1);
+                filter: drop-shadow(0 0 15px rgba(165, 214, 167, 0.6));
+            }
+        }
+
+        /* --- Configuración del Cuerpo y Lienzo Fantástico --- */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #041211 0%, #02070c 50%, #010408 100%);
+            color: #e0f2f1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* --- Elementos de la Naturaleza y Luna de Fondo --- */
+
+        /* La Gran Luna Resplandeciente */
+        .fondo-luna {
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(224,242,241,0.6) 40%, rgba(128,203,196,0.1) 70%, transparent 100%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            animation: lunaLatido 8s ease-in-out infinite;
+            opacity: 0.45;
+        }
+
+        /* Siluetas de Ramas y Bosque Inferior */
+        .fondo-naturaleza {
+            position: fixed;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 350px;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.18;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2380cbc4' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,117.3C960,107,1056,149,1152,149.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3Cpath%3E%3C/svg%3E");
+            background-size: cover;
+            filter: blur(2px) drop-shadow(0 -20px 30px rgba(128,203,196,0.15));
+        }
+
+        /* Marcos de Ramas en los Laterales */
+        .ramas-marcoreft, .ramas-marcoright {
+            position: fixed;
+            bottom: 0;
+            width: 300px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.12;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .ramas-marcoreft {
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M2,21C2,21 5,16 9,17C13,18 16,13 16,11C16,9 13,8 11,9C9,10 7,13 4,12C1,11 1,7 4,5C7,3 12,3 15,6C18,9 19,13 22,15L20,17C17,15 16,12 14,12C12,12 11,14 9,14C7,14 5,16 2,21Z'/%3E%3C/svg%3E");
+            transform: scaleX(-1) rotate(15deg);
+        }
+
+        .ramas-marcoright {
+            right: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M2,21C2,21 5,16 9,17C13,18 16,13 16,11C16,9 13,8 11,9C9,10 7,13 4,12C1,11 1,7 4,5C7,3 12,3 15,6C18,9 19,13 22,15L20,17C17,15 16,12 14,12C12,12 11,14 9,14C7,14 5,16 2,21Z'/%3E%3C/svg%3E");
+            transform: rotate(-15deg);
+        }
+
+        /* Partículas: Hojas Mágicas y Luciérnagas flotantes */
+        .particula {
+            position: absolute;
+            background: radial-gradient(circle, rgba(165,214,167,0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .p1 {
+            left: 15%;
+            width: 6px;
+            height: 6px;
+            animation: flotarHojas 12s linear infinite;
+            animation-delay: 1s;
+        }
+
+        .p2 {
+            left: 45%;
+            width: 10px;
+            height: 10px;
+            background: rgba(178,223,219,0.4);
+            border-radius: 50% 0 50% 0;
+            transform: rotate(45deg);
+            animation: flotarHojas 16s linear infinite;
+            animation-delay: 4s;
+        }
+
+        .p3 {
+            left: 80%;
+            width: 8px;
+            height: 8px;
+            animation: flotarHojas 14s linear infinite;
+            animation-delay: 0s;
+        }
+
+        .p4 {
+            left: 25%;
+            width: 12px;
+            height: 12px;
+            background: rgba(165,214,167,0.3);
+            border-radius: 50% 0 50% 0;
+            animation: flotarHojas 20s linear infinite;
+            animation-delay: 7s;
+        }
+
+        /* --- Interfaz Principal (Menú) --- */
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 40px;
+            box-sizing: border-box;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+            .navbar .brand {
+                font-weight: bold;
+                color: #ffffff;
+                text-shadow: 0 0 8px rgba(128, 203, 196, 0.4);
+            }
+
+            .navbar a {
+                color: #80cbc4;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+
+                .navbar a:hover {
+                    color: #a5d6a7;
+                    text-shadow: 0 0 10px #a5d6a7;
+                }
+
+        /* --- Presentación de la Diosa --- */
+        .main-container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            padding: 40px 20px 100px 20px;
+            z-index: 1;
+            box-sizing: border-box;
+        }
+
+        .header-section {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        /* Icono sagrado con animación fluida */
+        .god-icon {
+            width: 90px;
+            height: 90px;
+            fill: url(#degradadoVerdeLuna);
+            margin-bottom: 15px;
+            animation: flotarIcono 5s ease-in-out infinite;
+            transition: transform 0.4s ease;
+        }
+
+            .god-icon:hover {
+                transform: scale(1.1) rotate(15deg);
+            }
+
+        .god-name {
+            font-size: 4rem;
+            letter-spacing: 12px;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 300;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(128, 203, 196, 0.4);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+            .god-name:hover {
+                color: #e8f5e9;
+                letter-spacing: 16px;
+                text-shadow: 0 0 40px rgba(165, 214, 167, 0.8), 0 0 15px rgba(255, 255, 255, 0.6);
+            }
+
+        .god-title {
+            font-size: 0.95rem;
+            letter-spacing: 6px;
+            margin-top: 15px;
+            color: #80cbc4;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(7, 31, 26, 0.8);
+        }
+
+        /* --- Tarjeta de Lore Mística e Interactiva --- */
+        .content-card {
+            background: rgba(4, 16, 14, 0.8);
+            border: 1px solid rgba(128, 203, 196, 0.2);
+            border-radius: 16px;
+            padding: 50px;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+            /* Resplandor interno de hojas/luz al pasar el cursor (Hover) */
+            .content-card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(165, 214, 167, 0.15) 0%, transparent 60%);
+                opacity: 0;
+                transition: opacity 0.6s ease;
+                pointer-events: none;
+            }
+
+            .content-card:hover {
+                transform: translateY(-8px);
+                border-color: rgba(165, 214, 167, 0.5);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(128, 203, 196, 0.25);
+            }
+
+                .content-card:hover::before {
+                    opacity: 1;
+                }
+
+        /* Estilos de Textos Internos */
+        .card-title {
+            color: #b2dfdb;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(128, 203, 196, 0.2);
+            padding-bottom: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .content-card:hover .card-title {
+            color: #a5d6a7;
+            text-shadow: 0 0 15px rgba(165, 214, 167, 0.5);
+            padding-left: 8px;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #b0bec5;
+            transition: color 0.4s ease;
+        }
+
+        .content-card:hover .card-text {
+            color: #cfd8dc;
+        }
+
+        .sub-title {
+            color: #80cbc4;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        .status-text {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #546e7a;
+            text-align: center;
+            margin-top: 30px;
+            letter-spacing: 1px;
+            transition: color 0.4s ease;
+        }
+
+        .content-card:hover .status-text {
+            color: #a5d6a7;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Elementos Místicos del Fondo -->
+    <div class="fondo-luna"></div>
+    <div class="fondo-naturaleza"></div>
+    <div class="ramas-marcoreft"></div>
+    <div class="ramas-marcoright"></div>
+
+    <!-- Partículas ascendentes -->
+    <div class="particula p1"></div>
+    <div class="particula p2"></div>
+    <div class="particula p3"></div>
+    <div class="particula p4"></div>
+
+    <!-- Barra de Navegación -->
+    <div class="navbar">
+        <div class="brand">✦ GAMECOMUNITY</div>
+        <div><a href="#">← Volver a los Dioses</a></div>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <div class="main-container">
+
+        <div class="header-section">
+            <!-- Icono: Vectorizado de Luna Llena/Creciente entrelazada con brotes -->
+            <svg class="god-icon" viewBox="0 0 24 24">
+                <defs>
+                    <linearGradient id="degradadoVerdeLuna" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#e0f2f1" />
+                        <stop offset="100%" stop-color="#a5d6a7" />
+                    </linearGradient>
+                </defs>
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" opacity="0.25" />
+                <path d="M12 2C14.76 2 17.26 3.12 19.07 4.93C17.26 6.74 16 9.24 16 12C16 14.76 17.26 17.26 19.07 19.07C17.26 20.88 14.76 22 12 22C6.48 22 2 17.52 2 12S6.48 2 12 2M13 7C11.3 7 10 8.3 10 10C10 11.2 10.7 12.2 11.7 12.7V15.5H14.3V12.7C15.3 12.2 16 11.2 16 10C16 8.3 14.7 7 13 7Z" />
+            </svg>
+
+            <h1 class="god-name">Seraphyne</h1>
+            <div class="god-title">Diosa de la Luna y la Naturaleza</div>
+        </div>
+
+        <!-- Tarjeta de Contenido / Lore -->
+        <div class="content-card">
+            <h2 class="card-title">La Guardiana del Ciclo Eterno</h2>
+            <p class="card-text">
+                Seraphyne es la fuerza que guía las mareas, el crecimiento de los bosques antiguos y los secretos nocturnos. Señora de la luz plateada y la flora floreciente, representa el equilibrio de la vida silvestre, la regeneración, la magia lunar y la protección absoluta del entorno natural.
+            </p>
+
+            <h3 class="sub-title">Ventajas de sus Seguidores</h3>
+            <p class="status-text">— Esta sección se actualizará mas adelante —</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

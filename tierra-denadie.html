@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tierra de Nadie - Gamecomunity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+        /* --- Estructura Base y Lienzo Premium --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, #0a0614 0%, #030106 100%);
+            color: #dae0e6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .title-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Hero con desenfoque cósmico y overlay de fantasía profunda */
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(7, 3, 18, 0.75), rgba(3, 1, 6, 0.98)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .glow-epic {
+            text-shadow: 0 0 30px rgba(192, 38, 211, 0.6), 0 0 60px rgba(103, 232, 249, 0.3);
+        }
+
+        /* --- Tarjetas Estilo Cristal Líquido Interactivas --- */
+        .crystal-card {
+            background: rgba(12, 8, 24, 0.6);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .crystal-card::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+                opacity: 0;
+                transition: opacity 0.5s ease;
+                pointer-events: none;
+            }
+
+            .crystal-card:hover {
+                transform: translateY(-10px);
+                border-color: rgba(103, 232, 249, 0.4);
+                box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(168, 85, 247, 0.15);
+            }
+
+                .crystal-card:hover::before {
+                    opacity: 1;
+                }
+
+        /* --- Botones con Animación de Escudo Energético --- */
+        .btn-epic {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+            .btn-epic::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+                transition: 0.6s;
+            }
+
+            .btn-epic:hover::after {
+                left: 150%;
+            }
+
+        /* --- Sistema Avanzado de Partículas Mágicas --- */
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.7) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatParticle 20s linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(105vh) scale(0.5);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-5vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <nav class="fixed top-0 w-full bg-black/85 backdrop-blur-xl z-50 border-b border-purple-500/20">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 text-2xl title-font glow-epic text-white">
+                <span class="text-purple-400">✦</span> GAMECOMUNITY
+            </a>
+            <div class="flex gap-8 text-lg">
+                <a href="lore.html" class="text-gray-400 hover:text-purple-400 transition">Lore</a>
+                <a href="dioses.html" class="text-gray-400 hover:text-purple-400 transition">Los Dioses</a>
+                <a href="index.html" class="text-gray-400 hover:text-purple-400 transition">Inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-bg h-screen flex items-center relative overflow-hidden">
+        <div class="absolute -left-40 top-1/4 w-96 h-96 bg-purple-600/10 blur-[150px] pointer-events-none"></div>
+        <div class="absolute -right-40 bottom-1/4 w-96 h-96 bg-cyan-600/10 blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-6 text-center z-10 relative">
+            <div class="inline-block bg-purple-500/10 text-purple-300 text-xs font-semibold tracking-[5px] uppercase px-6 py-2.5 rounded-full border border-purple-500/30 mb-8 backdrop-blur-md">
+                ⚡ EVENTO PRÓXIMAMENTE ⚡
+            </div>
+
+            <h1 class="text-6xl md:text-8xl title-font font-bold tracking-wide mb-6 glow-epic text-white">
+                TIERRA DE NADIE
+            </h1>
+            <p class="text-lg md:text-2xl text-purple-200/80 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                La isla donde los dioses despiertan y los mortales deciden el destino del mundo.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+                <a href="lore.html"
+                   class="btn-epic w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl text-lg font-medium text-white hover:scale-105 shadow-[0_0_30px_rgba(147,51,234,0.3)] flex items-center justify-center gap-3">
+                    <i class="fas fa-scroll text-purple-200"></i>
+                    Leer el Lore
+                </a>
+
+                <a href="dioses.html"
+                   class="btn-epic w-full sm:w-auto px-8 py-4 border border-cyan-400/50 rounded-2xl text-lg font-medium text-cyan-300 hover:bg-cyan-400/10 hover:scale-105 flex items-center justify-center gap-3">
+                    <i class="fas fa-gem text-cyan-400"></i>
+                    Conocer los Dioses
+                </a>
+            </div>
+        </div>
+
+        <div id="particles" class="absolute inset-0 pointer-events-none z-0"></div>
+    </section>
+
+    <section class="py-28 relative z-10 bg-black/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl title-font text-center mb-20 glow-epic text-white tracking-wider">¿QUÉ ES TIERRA DE NADIE?</h2>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                <div class="lg:col-span-7 space-y-10">
+                    <div class="flex gap-5 group">
+                        <div class="flex-shrink-0 w-14 h-14 bg-purple-950/40 border border-purple-500/30 rounded-2xl flex items-center justify-center text-xl text-purple-400 group-hover:border-purple-400 transition-colors">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2 text-white">Una Isla de Secretos</h3>
+                            <p class="text-gray-400 font-light leading-relaxed">Explora un vasto ecosistema repleto de ruinas antiguas, templos sagrados y misterios ocultos mientras completas misiones asignadas por las deidades.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5 group">
+                        <div class="flex-shrink-0 w-14 h-14 bg-red-950/40 border border-red-500/30 rounded-2xl flex items-center justify-center text-xl text-red-400 group-hover:border-red-400 transition-colors">
+                            <i class="fas fa-fist-raised"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2 text-white">La Campaña de los Dioses</h3>
+                            <p class="text-gray-400 font-light leading-relaxed">Participa activamente en dinámicas, batallas globales y misiones territoriales para incrementar la influencia y poder de tu dios predilecto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 w-full">
+                    <div class="crystal-card rounded-3xl p-8 border border-purple-500/20 relative">
+                        <div class="absolute top-0 right-0 px-4 py-1 text-[10px] uppercase font-bold tracking-widest bg-cyan-500/20 text-cyan-300 rounded-bl-xl border-l border-b border-cyan-500/20">FEATURES</div>
+                        <h3 class="text-2xl title-font mb-6 text-center text-purple-300 font-bold tracking-wider">Próximamente</h3>
+                        <ul class="space-y-4 text-base">
+                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Misiones Diarias</li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Eventos masivos PvP y PvE</li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Recompensas y Reliquias Épicas</li>
+                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Sistema de Rol e Historias Inmersivas</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-[#030106] text-center border-t border-purple-500/10 relative z-10">
+        <p class="text-xs text-gray-600 tracking-wider">© Gamecomunity • Tierra de Nadie</p>
+    </footer>
+
+    <script>
+        function createParticle() {
+            const container = document.getElementById('particles');
+            if(!container) return;
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.width = p.style.height = (Math.random() * 6 + 4) + 'px';
+            p.style.animationDuration = (Math.random() * 15 + 12) + 's';
+            p.style.opacity = Math.random() * 0.5 + 0.3;
+
+            // Alternar destellos morados y cianes
+            if(Math.random() > 0.5) {
+                p.style.background = "radial-gradient(circle, rgba(103, 232, 249, 0.8) 0%, transparent 70%)";
+            }
+
+            container.appendChild(p);
+            setTimeout(() => p.remove(), 25000);
+        }
+        setInterval(createParticle, 180);
+    </script>
+</body>
+</html>

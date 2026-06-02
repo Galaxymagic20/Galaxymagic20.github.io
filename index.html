@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamecomunity - Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, #0a0518 0%, #020104 100%);
+            color: #dae0e6;
+            overflow-x: hidden;
+            position: relative;
+            user-select: none;
+        }
+
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: radial-gradient(rgba(168, 85, 247, 0.04) 1px, transparent 0);
+                background-size: 100px 100px;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+        .title-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .glow-arcano {
+            text-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(139, 92, 246, 0.3);
+        }
+
+        .hero-viewport {
+            background: linear-gradient(to bottom, rgba(10, 5, 24, 0.6), #020104), url('https://images.unsplash.com/photo-1614730320988-3f8b8e4f0e4d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* --- Altares Monolíticos --- */
+        .altar-card {
+            background-color: #0b0714;
+            border: 1px solid rgba(168, 85, 247, 0.08);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.85);
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+            .altar-card:hover {
+                transform: translateY(-5px);
+                background-color: #0f0a1c;
+                border-color: rgba(168, 85, 247, 0.2);
+                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95);
+            }
+
+        .altar-rune {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border: 1.5px solid rgba(168, 85, 247, 0.15);
+            z-index: 5;
+            pointer-events: none;
+            transition: border-color 0.4s ease;
+        }
+
+        .altar-card:hover .altar-rune {
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        .ar-tl {
+            top: 12px;
+            left: 12px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .ar-tr {
+            top: 12px;
+            right: 12px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .ar-bl {
+            bottom: 12px;
+            left: 12px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .ar-br {
+            bottom: 12px;
+            right: 12px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .btn-forja {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+            .btn-forja::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 50%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+                transition: 0.6s;
+            }
+
+            .btn-forja:hover::after {
+                left: 150%;
+            }
+
+        /* --- NUEVO EQUILIBRIO: VISIBLES PERO CAMUFLADAS --- */
+        .divine-relic {
+            cursor: pointer;
+            position: relative;
+            font-size: 1.5rem; /* Tamaño sutil, no gigantesco */
+            color: #4b5563; /* Color apagado por defecto (Gris piedra/interfaz) */
+            opacity: 0.25; /* Camufladas con el fondo al inicio */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Cuando el usuario interactúa con la tarjeta general, el Dios "despierta" su color */
+        .altar-card:hover .relic-mordrak {
+            color: #f97316;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 10px #ea580c);
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        .altar-card:hover .relic-alerion {
+            color: #a855f7;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 10px #7c3aed);
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        .altar-card:hover .relic-seraphyne {
+            color: #99f6e4;
+            opacity: 0.8;
+            filter: drop-shadow(0 0 10px #2dd4bf);
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                transform: scale(1);
+                filter: brightness(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+                filter: brightness(1.3) drop-shadow(0 0 15px currentColor);
+            }
+        }
+
+        .divine-relic:hover {
+            transform: scale(1.2) !important;
+            opacity: 1 !important;
+            filter: brightness(1.5) !important;
+        }
+
+        /* Estado Activado Final (Bucle de rotación mística permanente) */
+        .divine-relic.activated {
+            opacity: 1 !important;
+            animation: godAwakened 2.5s infinite linear !important;
+            pointer-events: none;
+        }
+
+        .relic-mordrak.activated {
+            color: #f97316 !important;
+            filter: drop-shadow(0 0 25px #f97316);
+        }
+
+        .relic-alerion.activated {
+            color: #a855f7 !important;
+            filter: drop-shadow(0 0 25px #a855f7);
+        }
+
+        .relic-seraphyne.activated {
+            color: #99f6e4 !important;
+            filter: drop-shadow(0 0 25px #99f6e4);
+        }
+
+        @keyframes godAwakened {
+            0% {
+                transform: rotate(0deg) scale(1.1);
+            }
+
+            100% {
+                transform: rotate(360deg) scale(1.1);
+            }
+        }
+
+        /* Estilos del Portal Secreto */
+        #secret-portal {
+            max-height: 0;
+            opacity: 0;
+            transform: scale(0.85);
+            overflow: hidden;
+            transition: all 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+            #secret-portal.revealed {
+                max-height: 150px;
+                opacity: 1;
+                transform: scale(1);
+                margin-top: 2.5rem;
+            }
+
+        .mystic-toast {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(8, 4, 20, 0.95);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            padding: 1.2rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 30px rgba(168, 85, 247, 0.2);
+            z-index: 100;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            backdrop-filter: blur(12px);
+        }
+
+            .mystic-toast.show {
+                bottom: 40px;
+            }
+
+        .soul-shard {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            animation: floatShard 24s linear infinite;
+        }
+
+        @keyframes floatShard {
+            0% {
+                transform: translateY(105vh) scale(0.3);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.4;
+            }
+
+            85% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-5vh) scale(1.3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav class="fixed top-0 w-full bg-black/80 backdrop-blur-xl z-50 border-b border-purple-500/15">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-purple-400 text-xl animate-pulse">✦</span>
+                <h1 class="text-xl md:text-2xl title-font tracking-[0.2em] glow-arcano text-white font-bold">GAMECOMUNITY</h1>
+            </div>
+            <div class="flex items-center gap-8 text-base">
+                <a href="https://discord.gg/M9yHQQgW2a" target="_blank"
+                   class="btn-forja text-sm uppercase tracking-widest font-medium bg-gradient-to-r from-purple-700 to-indigo-800 px-6 py-3 rounded-xl flex items-center gap-2.5 text-white shadow-[0_0_20px_rgba(126,34,206,0.3)] hover:scale-105">
+                    <i class="fab fa-discord"></i> Unirse al Discord
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO VIEWPORT -->
+    <section class="hero-viewport h-screen flex items-center relative overflow-hidden">
+        <div class="absolute -left-32 top-1/4 w-[500px] h-[500px] bg-purple-600/5 blur-[150px] pointer-events-none"></div>
+        <div class="absolute -right-32 bottom-1/4 w-[500px] h-[500px] bg-indigo-500/5 blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-6 text-center z-10 relative">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/[0.06] mb-8">
+                <span class="text-[10px] tracking-[0.3em] text-purple-400/80 font-medium uppercase">Comunidad Global Gaming</span>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl title-font font-black tracking-widest mb-8 glow-arcano text-white leading-tight">
+                GAMECOMUNITY
+            </h1>
+
+            <p class="text-lg md:text-xl text-purple-200/70 max-w-2xl mx-auto mb-12 font-light leading-relaxed tracking-wide">
+                Un nexo cósmico diseñado para los apasionados de los videojuegos. Juega partidas casuales, comparte universos alternos y forja lazos legendarios.
+            </p>
+
+            <div class="flex flex-col items-center justify-center">
+                <a href="https://discord.gg/M9yHQQgW2a" target="_blank"
+                   class="btn-forja w-full sm:w-auto px-12 py-5 bg-gradient-to-r from-purple-600 via-indigo-700 to-violet-800 rounded-2xl text-lg font-semibold text-white hover:scale-105 shadow-[0_0_30px_rgba(147,51,234,0.35)] flex items-center justify-center gap-4">
+                    <i class="fab fa-discord text-2xl"></i>
+                    UNIRSE AL DISCORD
+                </a>
+
+                <!-- EL PORTAL DIVINO OCULTO -->
+                <div id="secret-portal">
+                    <a href="tierra-denadie.html"
+                       class="btn-forja inline-flex px-12 py-5 border-2 border-amber-500 bg-amber-950/40 rounded-2xl text-base font-black text-amber-300 shadow-[0_0_50px_rgba(245,158,11,0.6)] hover:scale-105 transition-all duration-300 items-center gap-4 animate-pulse tracking-[0.15em]">
+                        <i class="fas fa-landmark text-amber-400 text-xl"></i>
+                        INGRESAR A TIERRA DE NADIE
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="shards-layer" class="absolute inset-0 pointer-events-none z-0"></div>
+    </section>
+
+    <!-- SECCIÓN DE CARACTERÍSTICAS -->
+    <section class="py-32 relative z-10 bg-[#020104] border-t border-purple-500/10">
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="text-center mb-24">
+                <h2 class="text-3xl title-font tracking-[0.25em] text-white font-bold mb-4">MÓDULOS DEL REINO</h2>
+                <p class="text-xs text-purple-400/50 tracking-widest uppercase">Pasa el cursor por las tarjetas para revelar las reliquias de los Dioses</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+
+                <!-- TARJETA 1: MORDRAK (Fuego / Llama) -->
+                <div class="altar-card p-8 rounded-3xl flex flex-col justify-between items-start min-h-[290px]">
+                    <div class="altar-rune ar-tl"></div><div class="altar-rune ar-tr"></div>
+                    <div class="altar-rune ar-bl"></div><div class="altar-rune ar-br"></div>
+
+                    <div class="w-full flex justify-between items-center mb-6">
+                        <div class="text-2xl text-orange-500/40">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <!-- Reliquia de Mordrak -->
+                        <i id="star1" class="fas fa-fire divine-relic relic-mordrak" title="Furia de Mordrak"></i>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 text-white tracking-wide title-font">Juegos Random</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed">Únete a partidas de Minecraft, Valorant, League o Roblox junto a escuadrones envueltos en la furia de la batalla.</p>
+                    </div>
+                </div>
+
+                <!-- TARJETA 2: ALERION (Sombras / Ojo místico) -->
+                <div class="altar-card p-8 rounded-3xl flex flex-col justify-between items-start min-h-[290px]">
+                    <div class="altar-rune ar-tl"></div><div class="altar-rune ar-tr"></div>
+                    <div class="altar-rune ar-bl"></div><div class="altar-rune ar-br"></div>
+
+                    <div class="w-full flex justify-between items-center mb-6">
+                        <div class="text-2xl text-purple-500/40">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <!-- Reliquia de Alerion -->
+                        <i id="star2" class="fas fa-eye divine-relic relic-alerion" title="Sabiduría de Alerion"></i>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 text-white tracking-wide title-font">Conocer Gente</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed">Forja alianzas desde el silencio, planea la estrategia perfecta y comparte sabiduría ancestral en canales grupales.</p>
+                    </div>
+                </div>
+
+                <!-- TARJETA 3: SERAPHYNE (Luna / Creciente) -->
+                <div class="altar-card p-8 rounded-3xl flex flex-col justify-between items-start min-h-[290px]">
+                    <div class="altar-rune ar-tl"></div><div class="altar-rune ar-tr"></div>
+                    <div class="altar-rune ar-bl"></div><div class="altar-rune ar-br"></div>
+
+                    <div class="w-full flex justify-between items-center mb-6">
+                        <div class="text-2xl text-teal-500/40">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <!-- Reliquia de Seraphyne -->
+                        <i id="star3" class="fas fa-moon divine-relic relic-seraphyne" title="Equilibrio de Seraphyne"></i>
+                    </div>
+
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3 text-white tracking-wide title-font">Actividades</h3>
+                        <p class="text-gray-400 font-light text-sm leading-relaxed">Noches bajo la luz de la luna, dinámicas que fluyen como mareas místicas y un equilibrio cíclico organizado por el Staff.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NOTIFICACIÓN MÍSTICA (TOAST) -->
+    <div id="mystic-toast" class="mystic-toast text-sm text-center title-font tracking-wider">
+        <span id="toast-text" class="text-purple-300"></span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-12 bg-[#020104] text-center border-t border-purple-500/10 relative z-10">
+        <p class="text-[11px] text-gray-600 tracking-[0.2em] uppercase">© Gamecomunity • Registro de Almas Terrenales</p>
+    </footer>
+
+    <!-- LÓGICA DEL JUEGO DIVINO -->
+    <script>
+        const gods = {
+            star1: { activated: false, name: "MORDRAK, Dios del Fuego y la Guerra", color: "text-orange-500" },
+            star2: { activated: false, name: "ALERION, Dios de las Sombras y la Estrategia", color: "text-purple-400" },
+            star3: { activated: false, name: "SERAPHYNE, Diosa de la Luna y la Naturaleza", color: "text-teal-300" }
+        };
+
+        let activeGods = 0;
+        const totalGods = 3;
+
+        function showMysticToast(text) {
+            const toast = document.getElementById('mystic-toast');
+            const toastText = document.getElementById('toast-text');
+            toastText.innerHTML = text;
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 4500);
+        }
+
+        Object.keys(gods).forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('click', (e) => {
+                    if (!gods[id].activated) {
+                        gods[id].activated = true;
+                        el.classList.add('activated');
+                        activeGods++;
+
+                        if (activeGods < totalGods) {
+                            showMysticToast(`Has despertado la esencia de <span class="${gods[id].color} font-bold">${gods[id].name}</span>. Faltan ${totalGods - activeGods} deidades.`);
+                        } else {
+                            document.getElementById('secret-portal').classList.add('revealed');
+                            showMysticToast(`¡El Panteón está completo! El equilibrio cíclico se ha roto... <span class="text-amber-400 font-bold">TIERRA DE NADIE</span> te reclama.`);
+                        }
+                    }
+                });
+            }
+        });
+
+        // Partículas ambientales
+        function createSoulShard() {
+            const container = document.getElementById('shards-layer');
+            if (!container) return;
+            const shard = document.createElement('div');
+            shard.classList.add('soul-shard');
+            shard.style.left = Math.random() * 100 + 'vw';
+
+            const size = Math.random() * 4 + 3;
+            shard.style.width = size + 'px';
+            shard.style.height = size + 'px';
+            shard.style.animationDuration = (Math.random() * 15 + 15) + 's';
+
+            shard.style.background = Math.random() > 0.5
+                ? "radial-gradient(circle, rgba(234, 88, 12, 0.25) 0%, transparent 80%)"
+                : "radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 80%)";
+
+            container.appendChild(shard);
+            setTimeout(() => shard.remove(), 30000);
+        }
+        setInterval(createSoulShard, 250);
+    </script>
+</body>
+</html>

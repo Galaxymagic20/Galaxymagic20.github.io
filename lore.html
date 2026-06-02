@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lore - Tierra de Nadie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=MedievalSharp&display=swap');
+
+        /* --- Lienzo de Vacío Cósmico --- */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, #070412 0%, #020104 100%);
+            color: #dae0e6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+            /* Fondo de polvo de estrellas cenizo místico */
+            body::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: radial-gradient(rgba(168, 85, 247, 0.05) 1px, transparent 0);
+                background-size: 130px 130px;
+                z-index: 0;
+                pointer-events: none;
+            }
+
+        .title-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .glow-nebula {
+            text-shadow: 0 0 25px rgba(168, 85, 247, 0.5), 0 0 50px rgba(103, 232, 249, 0.3);
+        }
+
+        /* --- El Único Gran Pergamino Continuo --- */
+        .pergamino-unico {
+            background-color: #110c1a;
+            background-image: radial-gradient(rgba(146, 92, 39, 0.03) 15%, transparent 20%), linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 60px 60px, 100% 30px;
+            border: 1px solid rgba(146, 92, 39, 0.2);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), inset 0 0 80px rgba(78, 48, 18, 0.35);
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+            .pergamino-unico:hover {
+                border-color: rgba(245, 158, 11, 0.35);
+                box-shadow: 0 35px 80px rgba(0, 0, 0, 0.95), inset 0 0 90px rgba(78, 48, 18, 0.4), 0 0 30px rgba(168, 85, 247, 0.15);
+            }
+
+        /* Esquinas de Forja Metálica Rúnica */
+        .corner-rune {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border: 2px solid rgba(245, 158, 11, 0.25);
+            z-index: 5;
+            pointer-events: none;
+            transition: border-color 0.4s ease;
+        }
+
+        .pergamino-unico:hover .corner-rune {
+            border-color: rgba(245, 158, 11, 0.6);
+        }
+
+        .cr-tl {
+            top: 16px;
+            left: 16px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .cr-tr {
+            top: 16px;
+            right: 16px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .cr-bl {
+            bottom: 16px;
+            left: 16px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .cr-br {
+            bottom: 16px;
+            right: 16px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* --- Letras Capitulares Góticas Ilustradas --- */
+        .chronicle-p::first-letter {
+            font-family: 'MedievalSharp', cursive;
+            font-size: 3.4rem;
+            float: left;
+            line-height: 0.85;
+            margin-top: 4px;
+            margin-right: 12px;
+            color: #fbbf24;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(245, 158, 11, 0.6), 2px 2px 0px rgba(0,0,0,0.6);
+        }
+
+        /* Separadores Astrológicos de Párrafos */
+        .astral-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: rgba(146, 92, 39, 0.3);
+            font-size: 0.75rem;
+            margin: 35px 0;
+            letter-spacing: 4px;
+        }
+
+            .astral-divider span {
+                width: 40px;
+                height: 1px;
+                background: linear-gradient(90deg, transparent, rgba(146, 92, 39, 0.25), transparent);
+            }
+
+        /* --- COLORES E ILUMINACIÓN DIVINA (Fieles al Lore) --- */
+        .txt-alerion {
+            color: #c084fc; /* Morado / Sombras */
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+            font-weight: 600;
+        }
+
+        .txt-seraphyne {
+            color: #2dd4bf; /* Menta / Luna */
+            text-shadow: 0 0 10px rgba(45, 212, 191, 0.4);
+            font-weight: 600;
+        }
+
+        .txt-mordrak {
+            color: #f97316; /* Naranja-Rojo / Fuego */
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <nav class="fixed top-0 w-full bg-black/85 backdrop-blur-xl z-50 border-b border-purple-500/20">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 text-2xl title-font glow-nebula text-white">
+                <span class="text-purple-400">✦</span> GAMECOMUNITY
+            </a>
+            <div class="flex gap-8 text-lg">
+                <a href="tierra-denadie.html" class="text-gray-400 hover:text-purple-400 transition">Tierra de Nadie</a>
+                <a href="dioses.html" class="text-gray-400 hover:text-purple-400 transition">Los Dioses</a>
+                <a href="index.html" class="text-gray-400 hover:text-purple-400 transition">Inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-16 relative overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/10 blur-[150px] pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl title-font glow-nebula mb-4 text-white font-bold tracking-widest">EL GRAN LORE</h1>
+            <div class="flex items-center justify-center gap-3 text-amber-500/50 uppercase tracking-[4px] text-xs font-semibold">
+                <span class="h-[1px] w-8 bg-amber-500/30"></span>
+                Crónicas de la Isla de Valdoria
+                <span class="h-[1px] w-8 bg-amber-500/30"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-32 relative z-10">
+        <div class="max-w-4xl mx-auto px-6">
+
+            <div class="pergamino-unico rounded-3xl p-8 md:p-16 relative">
+
+                <div class="corner-rune cr-tl"></div><div class="corner-rune cr-tr"></div>
+                <div class="corner-rune cr-bl"></div><div class="corner-rune cr-br"></div>
+
+                <div class="text-center mb-12 border-b border-amber-900/15 pb-6">
+                    <div class="text-amber-600/30 text-xl mb-2"><i class="fas fa-scroll"></i></div>
+                    <h2 class="text-3xl title-font font-bold text-amber-950/80 tracking-wide">Orígenes del Cosmos</h2>
+                </div>
+
+                <div class="text-gray-300 font-light leading-relaxed text-base md:text-lg text-justify space-y-6">
+
+                    <p class="chronicle-p">
+                        En los inicios del universo, el Big Bang creó tres entidades primordiales. Tres dioses forjados con un solo y absoluto propósito en su existencia: proteger, guiar y resguardar los misterios ancestrales de la <span class="text-amber-200 font-medium">Isla de Valdoria</span>.
+                    </p>
+
+                    <div class="astral-divider"><span></span> ✦ ❖ ✦ <span></span></div>
+
+                    <p class="chronicle-p">
+                        Ellos eran los encargados sagrados de salvaguardar a la <strong>civilización Valtora</strong>, la valiente tribu nativa de la isla. Para organizar las fuerzas cósmicas de la creación, las deidades fueron presentadas ante el cosmos bajo nombres inmutables:
+                    </p>
+
+                    <!-- SECCIÓN DE PRESENTACIÓN DE DIOSES CON SUS COLORES -->
+                    <div class="my-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                        <div class="p-4 rounded-xl bg-purple-950/20 border border-purple-500/10">
+                            <div class="text-xl mb-1 text-purple-400"><i class="fas fa-eye"></i></div>
+                            <span class="txt-alerion text-xl title-font block mb-1">ALERION</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Dios de la Sabiduría<br>y las Sombras</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-teal-950/20 border border-teal-500/10">
+                            <div class="text-xl mb-1 text-teal-400"><i class="fas fa-moon"></i></div>
+                            <span class="txt-seraphyne text-xl title-font block mb-1">SERAPHYNE</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Diosa de la Luna<br>y la Naturaleza</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-orange-950/20 border border-orange-500/10">
+                            <div class="text-xl mb-1 text-orange-400"><i class="fas fa-fire"></i></div>
+                            <span class="txt-mordrak text-xl title-font block mb-1">MORDRAK</span>
+                            <span class="text-xs text-gray-400 uppercase tracking-wider block">Dios del Fuego<br>y la Guerra</span>
+                        </div>
+                    </div>
+
+                    <p class="chronicle-p">
+                        Sin embargo, la armonía eterna colapsó durante una expedición maldita. Un grupo de exploradores valtores desenterró un poder místico tan oscuro y abrumador que terminó por corromper el corazón de la tribu entera, extendiéndose de forma letal hasta el mismísimo panteón divino. Consumidos por la ponzoña, <span class="txt-alerion">Alerion</span>, <span class="txt-seraphyne">Seraphyne</span> y <span class="txt-mordrak">Mordrak</span> olvidaron su juramento de protección y comenzaron a pelear encarnizadamente entre ellos.
+                    </p>
+
+                    <div class="astral-divider"><span></span> ✦ ❖ ✦ <span></span></div>
+
+                    <p class="chronicle-p">
+                        La violenta colisión de voluntades llegó a su punto de no retorno cuando los tres deidades se encontraron frente a frente en el epicentro de la isla. En un arrebato de ira absoluta, provocaron un destructivo <strong>choque de puños entre los tres</strong>, liberando una descarga de energía tan masiva que ocasionó un catastrófico Big Bang, reiniciando la realidad entera.
+                    </p>
+
+                    <!-- CUADRO FINAL DEL BUCLE -->
+                    <div class="mt-12 bg-amber-500/5 border-l-2 border-amber-600/40 p-6 md:p-8 rounded-r-2xl italic">
+                        <p class="text-amber-400/90 font-medium text-lg md:text-xl leading-relaxed">
+                            Tras incontables años de repetirse cíclicamente el mismo choque de puños, algo falló en la ecuación del tejido cósmico... y fueron creados los humanos. La humanidad ha despertado con un propósito ineludible: adentrarse en Valdoria, detener la corrupción que enloqueció a los dioses y unirse para liberar al mundo del eterno bucle del tiempo.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-12 text-amber-700/20 text-sm tracking-[8px]">
+                    ✦ ❖ ✦ ❖ ✦
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="py-12 bg-[#020104] text-center border-t border-purple-500/10 relative z-10">
+        <p class="text-xs text-gray-600 tracking-wider">Gamecomunity • Crónicas Antiguas</p>
+    </footer>
+
+</body>
+</html>
