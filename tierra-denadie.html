@@ -22,12 +22,18 @@
             font-family: 'Cinzel', serif;
         }
 
-        /* Hero con desenfoque cósmico y overlay de fantasía profunda */
+        /* Hero optimizado: fixed solo en escritorio para evitar bugs en celular */
         .hero-bg {
             background: linear-gradient(to bottom, rgba(7, 3, 18, 0.75), rgba(3, 1, 6, 0.98)), url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: scroll;
+        }
+
+        @media (min-width: 768px) {
+            .hero-bg {
+                background-attachment: fixed;
+            }
         }
 
         .glow-epic {
@@ -120,46 +126,48 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between pt-16 sm:pt-20">
 
+    <!-- MENÚ DE NAVEGACIÓN -->
     <nav class="fixed top-0 w-full bg-black/85 backdrop-blur-xl z-50 border-b border-purple-500/20">
-        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3 text-2xl title-font glow-epic text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-4 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+            <a href="index.html" class="flex items-center gap-2 text-xl sm:text-2xl title-font glow-epic text-white tracking-wider font-bold">
                 <span class="text-purple-400">✦</span> GAMECOMUNITY
             </a>
-            <div class="flex gap-8 text-lg">
-                <a href="lore.html" class="text-gray-400 hover:text-purple-400 transition">Lore</a>
-                <a href="dioses.html" class="text-gray-400 hover:text-purple-400 transition">Los Dioses</a>
-                <a href="index.html" class="text-gray-400 hover:text-purple-400 transition">Inicio</a>
+            <div class="flex gap-6 sm:gap-8 text-sm sm:text-base font-medium tracking-wide">
+                <a href="lore.html" class="text-gray-400 hover:text-purple-400 transition-colors">Lore</a>
+                <a href="dioses.html" class="text-gray-400 hover:text-purple-400 transition-colors">Los Dioses</a>
+                <a href="index.html" class="text-gray-400 hover:text-purple-400 transition-colors">Inicio</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero-bg h-screen flex items-center relative overflow-hidden">
-        <div class="absolute -left-40 top-1/4 w-96 h-96 bg-purple-600/10 blur-[150px] pointer-events-none"></div>
-        <div class="absolute -right-40 bottom-1/4 w-96 h-96 bg-cyan-600/10 blur-[150px] pointer-events-none"></div>
+    <!-- HERO VIEWPORT -->
+    <section class="hero-bg min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)] flex items-center relative overflow-hidden py-16 md:py-24">
+        <div class="absolute -left-40 top-1/4 w-72 md:w-96 h-72 md:h-96 bg-purple-600/10 blur-[100px] md:blur-[150px] pointer-events-none"></div>
+        <div class="absolute -right-40 bottom-1/4 w-72 md:w-96 h-72 md:h-96 bg-cyan-600/10 blur-[100px] md:blur-[150px] pointer-events-none"></div>
 
-        <div class="max-w-6xl mx-auto px-6 text-center z-10 relative">
-            <div class="inline-block bg-purple-500/10 text-purple-300 text-xs font-semibold tracking-[5px] uppercase px-6 py-2.5 rounded-full border border-purple-500/30 mb-8 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-6 text-center z-10 relative w-full">
+            <div class="inline-block bg-purple-500/10 text-purple-300 text-[10px] md:text-xs font-semibold tracking-[4px] md:tracking-[5px] uppercase px-4 md:px-6 py-2 rounded-full border border-purple-500/30 mb-6 md:mb-8 backdrop-blur-md">
                 ⚡ EVENTO PRÓXIMAMENTE ⚡
             </div>
 
-            <h1 class="text-6xl md:text-8xl title-font font-bold tracking-wide mb-6 glow-epic text-white">
+            <h1 class="text-4xl sm:text-6xl md:text-8xl title-font font-bold tracking-wide mb-6 glow-epic text-white leading-tight break-words">
                 TIERRA DE NADIE
             </h1>
-            <p class="text-lg md:text-2xl text-purple-200/80 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+            <p class="text-base md:text-2xl text-purple-200/80 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed tracking-wide">
                 La isla donde los dioses despiertan y los mortales deciden el destino del mundo.
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-5">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 w-full max-w-md mx-auto sm:max-w-none">
                 <a href="lore.html"
-                   class="btn-epic w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl text-lg font-medium text-white hover:scale-105 shadow-[0_0_30px_rgba(147,51,234,0.3)] flex items-center justify-center gap-3">
+                   class="btn-epic w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl text-base md:text-lg font-medium text-white hover:scale-105 shadow-[0_0_30px_rgba(147,51,234,0.3)] flex items-center justify-center gap-3">
                     <i class="fas fa-scroll text-purple-200"></i>
                     Leer el Lore
                 </a>
 
                 <a href="dioses.html"
-                   class="btn-epic w-full sm:w-auto px-8 py-4 border border-cyan-400/50 rounded-2xl text-lg font-medium text-cyan-300 hover:bg-cyan-400/10 hover:scale-105 flex items-center justify-center gap-3">
+                   class="btn-epic w-full sm:w-auto px-8 py-4 border border-cyan-400/50 rounded-2xl text-base md:text-lg font-medium text-cyan-300 hover:bg-cyan-400/10 hover:scale-105 flex items-center justify-center gap-3">
                     <i class="fas fa-gem text-cyan-400"></i>
                     Conocer los Dioses
                 </a>
@@ -169,43 +177,46 @@
         <div id="particles" class="absolute inset-0 pointer-events-none z-0"></div>
     </section>
 
-    <section class="py-28 relative z-10 bg-black/40">
+    <!-- SECCIÓN CONTENIDO -->
+    <section class="py-20 md:py-28 relative z-10 bg-black/40 border-t border-purple-500/10">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl title-font text-center mb-20 glow-epic text-white tracking-wider">¿QUÉ ES TIERRA DE NADIE?</h2>
+            <h2 class="text-3xl md:text-5xl title-font text-center mb-16 md:text-auto md:mb-20 glow-epic text-white tracking-wider font-bold">¿QUÉ ES TIERRA DE NADIE?</h2>
 
-            <div class="grid lg:grid-cols-12 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
-                <div class="lg:col-span-7 space-y-10">
-                    <div class="flex gap-5 group">
-                        <div class="flex-shrink-0 w-14 h-14 bg-purple-950/40 border border-purple-500/30 rounded-2xl flex items-center justify-center text-xl text-purple-400 group-hover:border-purple-400 transition-colors">
+                <!-- Bloques Informativos Izquierda -->
+                <div class="lg:col-span-7 space-y-8 md:space-y-10">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 group">
+                        <div class="flex-shrink-0 w-14 h-14 bg-purple-950/40 border border-purple-500/30 rounded-2xl flex items-center justify-center text-xl text-purple-400 group-hover:border-purple-400 transition-colors mx-auto sm:mx-0">
                             <i class="fas fa-map-marked-alt"></i>
                         </div>
-                        <div>
+                        <div class="text-center sm:text-left">
                             <h3 class="text-xl font-semibold mb-2 text-white">Una Isla de Secretos</h3>
-                            <p class="text-gray-400 font-light leading-relaxed">Explora un vasto ecosistema repleto de ruinas antiguas, templos sagrados y misterios ocultos mientras completas misiones asignadas por las deidades.</p>
+                            <p class="text-gray-400 font-light text-sm md:text-base leading-relaxed">Explora un vasto ecosistema repleto de ruinas antiguas, templos sagrados y misterios ocultos mientras completas misiones asignadas por las deidades.</p>
                         </div>
                     </div>
 
-                    <div class="flex gap-5 group">
-                        <div class="flex-shrink-0 w-14 h-14 bg-red-950/40 border border-red-500/30 rounded-2xl flex items-center justify-center text-xl text-red-400 group-hover:border-red-400 transition-colors">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 group">
+                        <div class="flex-shrink-0 w-14 h-14 bg-red-950/40 border border-red-500/30 rounded-2xl flex items-center justify-center text-xl text-red-400 group-hover:border-red-400 transition-colors mx-auto sm:mx-0">
                             <i class="fas fa-fist-raised"></i>
                         </div>
-                        <div>
+                        <div class="text-center sm:text-left">
                             <h3 class="text-xl font-semibold mb-2 text-white">La Campaña de los Dioses</h3>
-                            <p class="text-gray-400 font-light leading-relaxed">Participa activamente en dinámicas, batallas globales y misiones territoriales para incrementar la influencia y poder de tu dios predilecto.</p>
+                            <p class="text-gray-400 font-light text-sm md:text-base leading-relaxed">Participa activamente en dinámicas, batallas globales y misiones territoriales para incrementar la influencia y poder de tu dios predilecto.</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Tarjeta Cristal Derecha -->
                 <div class="lg:col-span-5 w-full">
-                    <div class="crystal-card rounded-3xl p-8 border border-purple-500/20 relative">
-                        <div class="absolute top-0 right-0 px-4 py-1 text-[10px] uppercase font-bold tracking-widest bg-cyan-500/20 text-cyan-300 rounded-bl-xl border-l border-b border-cyan-500/20">FEATURES</div>
-                        <h3 class="text-2xl title-font mb-6 text-center text-purple-300 font-bold tracking-wider">Próximamente</h3>
-                        <ul class="space-y-4 text-base">
-                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Misiones Diarias</li>
-                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Eventos masivos PvP y PvE</li>
-                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Recompensas y Reliquias Épicas</li>
-                            <li class="flex items-center gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Sistema de Rol e Historias Inmersivas</li>
+                    <div class="crystal-card rounded-3xl p-6 md:p-8 border border-purple-500/20 relative">
+                        <div class="absolute top-0 right-0 px-4 py-1 text-[9px] md:text-[10px] uppercase font-bold tracking-widest bg-cyan-500/20 text-cyan-300 rounded-bl-xl border-l border-b border-cyan-500/20">FEATURES</div>
+                        <h3 class="text-xl md:text-2xl title-font mb-6 text-center text-purple-300 font-bold tracking-wider">Próximamente</h3>
+                        <ul class="space-y-4 text-sm md:text-base">
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Misiones Diarias</li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Eventos masivos PvP y PvE</li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Recompensas y Reliquias Épicas</li>
+                            <li class="flex items-center gap-3 md:gap-4 text-gray-300 font-light"><span class="text-purple-400"><i class="fas fa-chevron-right text-xs"></i></span> Sistema de Rol e Historias Inmersivas</li>
                         </ul>
                     </div>
                 </div>
@@ -214,10 +225,12 @@
         </div>
     </section>
 
-    <footer class="py-12 bg-[#030106] text-center border-t border-purple-500/10 relative z-10">
-        <p class="text-xs text-gray-600 tracking-wider">© Gamecomunity • Tierra de Nadie</p>
+    <!-- FOOTER -->
+    <footer class="py-8 md:py-12 bg-[#030106] text-center border-t border-purple-500/10 relative z-10">
+        <p class="text-[10px] md:text-xs text-gray-600 tracking-wider">© Gamecomunity • Tierra de Nadie</p>
     </footer>
 
+    <!-- SISTEMA DE PARTÍCULAS -->
     <script>
         function createParticle() {
             const container = document.getElementById('particles');
