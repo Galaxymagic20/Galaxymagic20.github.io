@@ -40,125 +40,66 @@
         }
 
         /* Animaciones */
-        @keyframes floatMordrak {
+        @keyframes float {
             0%, 100% {
                 transform: translateY(0) scale(1);
-                filter: drop-shadow(0 0 15px rgba(244, 67, 54, 0.4));
             }
 
             50% {
                 transform: translateY(-8px) scale(1.03);
-                filter: drop-shadow(0 0 30px rgba(255, 110, 64, 0.7));
-            }
-        }
-
-        @keyframes floatAlerion {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-                filter: drop-shadow(0 0 15px rgba(149, 117, 205, 0.4));
-            }
-
-            50% {
-                transform: translateY(-8px) scale(1.03);
-                filter: drop-shadow(0 0 30px rgba(63, 81, 181, 0.7));
-            }
-        }
-
-        @keyframes floatSeraphyne {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-                filter: drop-shadow(0 0 15px rgba(165, 214, 167, 0.4));
-            }
-
-            50% {
-                transform: translateY(-8px) scale(1.03);
-                filter: drop-shadow(0 0 30px rgba(178, 223, 219, 0.7));
             }
         }
 
         .icon-mordrak {
-            animation: floatMordrak 5s ease-in-out infinite;
+            animation: float 5s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(244, 67, 54, 0.4));
         }
 
         .icon-alerion {
-            animation: floatAlerion 5.2s ease-in-out infinite;
+            animation: float 5.2s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(149, 117, 205, 0.4));
         }
 
         .icon-seraphyne {
-            animation: floatSeraphyne 4.8s ease-in-out infinite;
+            animation: float 4.8s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px rgba(165, 214, 167, 0.4));
         }
 
         .god-card {
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            overflow: hidden;
             background: rgba(10, 10, 15, 0.7);
             backdrop-filter: blur(10px);
         }
-
-            .god-card::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                opacity: 0;
-                transition: opacity 0.6s ease;
-                pointer-events: none;
-                z-index: 1;
-            }
 
             .god-card:hover {
                 transform: translateY(-10px);
                 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
             }
-
-                .god-card:hover::before {
-                    opacity: 1;
-                }
-
-        .card-mordrak:hover {
-            border-color: rgba(244, 67, 54, 0.5);
-        }
-
-        .card-mordrak::before {
-            background: radial-gradient(circle, rgba(216, 67, 21, 0.15) 0%, transparent 60%);
-        }
-
-        .card-alerion:hover {
-            border-color: rgba(149, 117, 205, 0.5);
-        }
-
-        .card-alerion::before {
-            background: radial-gradient(circle, rgba(103, 58, 183, 0.15) 0%, transparent 60%);
-        }
-
-        .card-seraphyne:hover {
-            border-color: rgba(165, 214, 167, 0.5);
-        }
-
-        .card-seraphyne::before {
-            background: radial-gradient(circle, rgba(165, 214, 167, 0.12) 0%, transparent 60%);
-        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col">
 
-    <nav class="fixed top-0 w-full bg-black/85 backdrop-blur-xl z-50 border-b border-purple-500/20">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <!-- Navegación Flotante -->
+    <nav class="fixed top-0 w-full z-50 px-4 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center bg-black/40 backdrop-blur-md border border-purple-500/20 rounded-2xl p-4 shadow-2xl">
             <a href="index.html" class="flex items-center gap-2 text-xl md:text-2xl title-font glow text-white">
                 <span class="text-purple-400">✦</span> GAMECOMUNITY
             </a>
-            <div class="flex gap-4 md:gap-8 text-sm md:text-lg">
-                <a href="lore.html" class="text-gray-400 hover:text-purple-400 transition">Lore</a>
-                <a href="index.html" class="text-gray-400 hover:text-purple-400 transition">Inicio</a>
+            <div class="flex gap-3">
+                <a href="lore.html" class="px-5 py-2 rounded-full border border-purple-500/30 bg-purple-950/20 text-purple-200 hover:bg-purple-900/40 hover:border-purple-400/50 transition-all text-sm md:text-base font-medium uppercase tracking-widest">
+                    Lore
+                </a>
+                <a href="index.html" class="px-5 py-2 rounded-full border border-purple-500/30 bg-purple-950/20 text-purple-200 hover:bg-purple-900/40 hover:border-purple-400/50 transition-all text-sm md:text-base font-medium uppercase tracking-widest">
+                    Inicio
+                </a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-16 relative">
-        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+    <!-- Contenido -->
+    <section class="pt-32 pb-16 relative z-10">
+        <div class="max-w-6xl mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-6xl title-font glow mb-6 text-white tracking-wide">LOS DIOSES</h1>
             <p class="text-md md:text-xl text-purple-300/80 max-w-2xl mx-auto font-light">Elige tu camino. Cada deidad te dotará de un poder y un destino diferente.</p>
         </div>
@@ -167,22 +108,25 @@
     <section class="pb-32 relative z-10">
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-            <a href="mordrak.html" class="god-card card-mordrak border border-red-900/40 rounded-3xl p-8 text-center flex flex-col items-center group">
-                <svg class="w-20 h-20 mb-6 icon-mordrak" viewBox="0 0 24 24"><path fill="url(#gradMordrak)" d="M12 2C6.5 2 2 6.5 2 12C2 15.6 3.9 18.7 6.8 20.4L5 15H8L7 12H10L9 9H12L11 6H13L14 9H11L12 12H15L14 15H17L15.2 20.4C18.1 18.7 20 15.6 20 12C20 6.5 15.5 2 12 2Z" /></svg>
+            <!-- Mordrak -->
+            <a href="mordrak.html" class="god-card border border-red-900/40 rounded-3xl p-8 text-center flex flex-col items-center group">
+                <svg class="w-20 h-20 mb-6 icon-mordrak" viewBox="0 0 24 24"><path fill="#f87171" d="M12 2C6.5 2 2 6.5 2 12C2 15.6 3.9 18.7 6.8 20.4L5 15H8L7 12H10L9 9H12L11 6H13L14 9H11L12 12H15L14 15H17L15.2 20.4C18.1 18.7 20 15.6 20 12C20 6.5 15.5 2 12 2Z" /></svg>
                 <h2 class="text-3xl title-font text-red-400 mb-3 tracking-wider">MORDRAK</h2>
                 <p class="text-sm text-red-200/70 font-light mb-6">Dios del Fuego y la guerra que forja imperios.</p>
                 <div class="mt-auto text-[10px] font-semibold uppercase tracking-[0.2em] text-red-500/70 bg-red-950/30 border border-red-900/30 px-4 py-2 rounded-full">Fuego • Guerra</div>
             </a>
 
-            <a href="alerion.html" class="god-card card-alerion border border-purple-900/40 rounded-3xl p-8 text-center flex flex-col items-center group">
-                <svg class="w-20 h-20 mb-6 icon-alerion" viewBox="0 0 24 24"><path fill="url(#gradAlerion)" d="M12,2C7.03,2 3,6.03 3,11C3,14.46 4.96,17.46 7.83,18.94L8.91,21.11C9.11,21.5 9.5,21.75 10,21.75 10.38,21.56L12,20.75L13.63,21.56C14,21.75 14.5,21.5 14.71,21.11L15.79,18.94C18.66,17.46 20.62,14.46 20.62,11C20.62,6.03 16.59,2 12,2M9,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,11A1.5,1.5 0 0,1 9,9.5M15,9.5A1.5,1.5 0 0,1 16.5,8A1.5,1.5 0 0,1 18,9.5A1.5,1.5 0 0,1 16.5,11A1.5,1.5 0 0,1 15,9.5M12,14C13.1,14 14,14.9 14,16H10C10,14.9 10.9,14 12,14Z" /></svg>
+            <!-- Alerion -->
+            <a href="alerion.html" class="god-card border border-purple-900/40 rounded-3xl p-8 text-center flex flex-col items-center group">
+                <svg class="w-20 h-20 mb-6 icon-alerion" viewBox="0 0 24 24"><path fill="#a78bfa" d="M12,2C7.03,2 3,6.03 3,11C3,14.46 4.96,17.46 7.83,18.94L8.91,21.11C9.11,21.5 9.5,21.75 10,21.75 10.38,21.56L12,20.75L13.63,21.56C14,21.75 14.5,21.5 14.71,21.11L15.79,18.94C18.66,17.46 20.62,14.46 20.62,11C20.62,6.03 16.59,2 12,2M9,9.5A1.5,1.5 0 0,1 10.5,8A1.5,1.5 0 0,1 12,9.5A1.5,1.5 0 0,1 10.5,11A1.5,1.5 0 0,1 9,9.5M15,9.5A1.5,1.5 0 0,1 16.5,8A1.5,1.5 0 0,1 18,9.5A1.5,1.5 0 0,1 16.5,11A1.5,1.5 0 0,1 15,9.5M12,14C13.1,14 14,14.9 14,16H10C10,14.9 10.9,14 12,14Z" /></svg>
                 <h2 class="text-3xl title-font text-purple-400 mb-3 tracking-wider">ALERION</h2>
                 <p class="text-sm text-purple-200/70 font-light mb-6">Dios de la Sabiduría ancestral y las sombras.</p>
                 <div class="mt-auto text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-400/70 bg-purple-950/30 border border-purple-900/30 px-4 py-2 rounded-full">Sabiduría • Sombras</div>
             </a>
 
-            <a href="seraphyne.html" class="god-card card-seraphyne border border-teal-900/40 rounded-3xl p-8 text-center flex flex-col items-center group">
-                <svg class="w-20 h-20 mb-6 icon-seraphyne" viewBox="0 0 24 24"><path fill="url(#gradSeraphyne)" d="M12 2C14.76 2 17.26 3.12 19.07 4.93C17.26 6.74 16 9.24 16 12C16 14.76 17.26 17.26 19.07 19.07C17.26 20.88 14.76 22 12 22C6.48 22 2 17.52 2 12S6.48 2 12 2M13 7C11.3 7 10 8.3 10 10C10 11.2 10.7 12.2 11.7 12.7V15.5H14.3V12.7C15.3 12.2 16 11.2 16 10C16 8.3 14.7 7 13 7Z" /></svg>
+            <!-- Seraphyne -->
+            <a href="seraphyne.html" class="god-card border border-teal-900/40 rounded-3xl p-8 text-center flex flex-col items-center group">
+                <svg class="w-20 h-20 mb-6 icon-seraphyne" viewBox="0 0 24 24"><path fill="#5eead4" d="M12 2C14.76 2 17.26 3.12 19.07 4.93C17.26 6.74 16 9.24 16 12C16 14.76 17.26 17.26 19.07 19.07C17.26 20.88 14.76 22 12 22C6.48 22 2 17.52 2 12S6.48 2 12 2M13 7C11.3 7 10 8.3 10 10C10 11.2 10.7 12.2 11.7 12.7V15.5H14.3V12.7C15.3 12.2 16 11.2 16 10C16 8.3 14.7 7 13 7Z" /></svg>
                 <h2 class="text-3xl title-font text-teal-400 mb-3 tracking-wider">SERAPHYNE</h2>
                 <p class="text-sm text-teal-200/70 font-light mb-6">Diosa de la Luna, la naturaleza y el equilibrio.</p>
                 <div class="mt-auto text-[10px] font-semibold uppercase tracking-[0.2em] text-teal-400/70 bg-teal-950/30 border border-teal-900/30 px-4 py-2 rounded-full">Luna • Naturaleza</div>
@@ -194,6 +138,5 @@
     <footer class="py-8 bg-[#040307] text-center border-t border-purple-500/10 relative z-10">
         <p class="text-xs text-gray-600 tracking-wider uppercase">Gamecomunity • Los Tres Dioses Primordiales</p>
     </footer>
-
 </body>
 </html>

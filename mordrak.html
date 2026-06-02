@@ -69,7 +69,6 @@
             }
         }
 
-        /* --- Configuración del Fondo de Ceniza y Guerra --- */
         body {
             margin: 0;
             padding: 0;
@@ -85,7 +84,6 @@
             position: relative;
         }
 
-            /* Cielo Estrellado empañado por hollín bélico */
             body::before {
                 content: "";
                 position: absolute;
@@ -100,9 +98,6 @@
                 pointer-events: none;
             }
 
-        /* --- Elementos Decorativos de la Furia Eterna --- */
-
-        /* El Gran Sol Volcánico */
         .fondo-sol {
             position: absolute;
             top: -150px;
@@ -118,7 +113,6 @@
             opacity: 0.65;
         }
 
-        /* Horizonte de Montañas de Fuego y Cenizas */
         .fondo-campo-batalla {
             position: fixed;
             bottom: -10px;
@@ -133,7 +127,6 @@
             filter: blur(2px) drop-shadow(0 -20px 30px rgba(216,67,21,0.25));
         }
 
-        /* Espadas Monumentales Clavadas en las Esquinas (Arreglada Sintaxis SVG) */
         .forja-izq, .forja-der {
             position: fixed;
             bottom: -20px;
@@ -158,7 +151,6 @@
             transform: scaleX(-1) rotate(15deg) scale(1.3);
         }
 
-        /* Chispas de Fuego y Magma fijadas a la pantalla para evitar scroll infinito */
         .chispa {
             position: fixed;
             bottom: -20px;
@@ -173,7 +165,6 @@
             width: 5px;
             height: 5px;
             animation: flotarChispas 9s linear infinite;
-            animation-delay: 0s;
         }
 
         .ch2 {
@@ -181,7 +172,6 @@
             width: 10px;
             height: 10px;
             background: rgba(244,67,54,0.6);
-            border-radius: 50% 10% 50% 10%;
             animation: flotarChispas 14s linear infinite;
             animation-delay: 2s;
         }
@@ -199,7 +189,6 @@
             width: 12px;
             height: 12px;
             background: rgba(255,171,64,0.4);
-            border-radius: 20% 80% 40% 60%;
             animation: flotarChispas 16s linear infinite;
             animation-delay: 5s;
         }
@@ -211,30 +200,38 @@
             justify-content: space-between;
             padding: 25px 40px;
             box-sizing: border-box;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             z-index: 10;
+            align-items: center;
         }
 
             .navbar .brand {
                 font-weight: bold;
                 color: #ffffff;
                 text-shadow: 0 0 8px rgba(244,67,54,0.5);
+                letter-spacing: 2px;
             }
 
-            .navbar a {
-                color: #ff8a65;
-                text-decoration: none;
-                transition: all 0.3s ease;
+        /* Botón mejorado para móviles */
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: rgba(216, 67, 21, 0.2);
+            border: 1px solid #ff8a65;
+            border-radius: 8px;
+            color: #ff8a65;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+        }
+
+            .nav-btn:hover {
+                background: #ff8a65;
+                color: #000;
             }
 
-                .navbar a:hover {
-                    color: #ff5722;
-                    text-shadow: 0 0 10px #ff5722;
-                }
-
-        /* --- Bloque de Cabecera de Mordrak --- */
         .main-container {
             max-width: 900px;
             width: 100%;
@@ -249,36 +246,22 @@
             position: relative;
         }
 
-        /* Hacha de Fuego e Icono de Furia Guerra */
         .god-icon {
             width: 90px;
             height: 90px;
             fill: url(#degradadoMagmaFeroz);
             margin-bottom: 15px;
             animation: flotarIcono 4.8s ease-in-out infinite;
-            transition: transform 0.4s ease;
         }
-
-            .god-icon:hover {
-                transform: scale(1.15) rotate(10deg);
-            }
 
         .god-name {
             font-size: 4rem;
             letter-spacing: 12px;
             margin: 0;
             text-transform: uppercase;
-            font-weight: 300;
             color: #ffffff;
             text-shadow: 0 0 20px rgba(216, 67, 21, 0.5);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-            /* Destello abrasador en Hover */
-            .god-name:hover {
-                color: #fff3e0;
-                letter-spacing: 16px;
-                text-shadow: 0 0 45px rgba(244, 67, 54, 0.95), 0 0 20px rgba(255, 255, 255, 0.6);
-            }
 
         .god-title {
             font-size: 0.95rem;
@@ -286,10 +269,8 @@
             margin-top: 15px;
             color: #ff8a65;
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
         }
 
-        /* --- Tarjeta del Templo Caótico (Efecto Brasa Ardiente) --- */
         .content-card {
             background: rgba(14, 5, 5, 0.86);
             border: 1px solid rgba(216, 67, 21, 0.22);
@@ -300,65 +281,23 @@
             text-align: left;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             animation: entradaFluida 1.5s ease-out;
         }
 
-            /* Efecto destello de magma ardiente expandiéndose */
-            .content-card::before {
-                content: '';
-                position: absolute;
-                top: -50%;
-                left: -50%;
-                width: 200%;
-                height: 200%;
-                background: radial-gradient(circle, rgba(216, 67, 21, 0.18) 0%, transparent 60%);
-                opacity: 0;
-                transition: opacity 0.6s ease;
-                pointer-events: none;
-            }
-
-            .content-card:hover {
-                transform: translateY(-8px);
-                border-color: rgba(244, 67, 54, 0.5);
-                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(216, 67, 21, 0.3);
-            }
-
-                .content-card:hover::before {
-                    opacity: 1;
-                }
-
-        /* Títulos e Historias del Lore */
         .card-title {
             color: #ff8a65;
             font-size: 1.4rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-top: 0;
             margin-bottom: 25px;
             border-bottom: 1px solid rgba(216, 67, 21, 0.25);
             padding-bottom: 15px;
-            transition: all 0.4s ease;
-        }
-
-        .content-card:hover .card-title {
-            color: #ff5722;
-            text-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
-            padding-left: 8px;
         }
 
         .card-text {
             font-size: 1rem;
             line-height: 1.8;
             color: #ffccbc;
-            transition: color 0.4s ease;
-        }
-
-        .content-card:hover .card-text {
-            color: #ffe0b2;
         }
 
         .sub-title {
@@ -367,7 +306,6 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-top: 35px;
-            margin-bottom: 15px;
         }
 
         .status-text {
@@ -376,45 +314,30 @@
             color: #5d4037;
             text-align: center;
             margin-top: 30px;
-            letter-spacing: 1px;
-            transition: color 0.4s ease;
         }
 
-        .content-card:hover .status-text {
-            color: #ff7043;
-        }
-
-        /* --- Ajustes exclusivos para Celulares (Responsive Móvil) --- */
         @media (max-width: 600px) {
             .navbar {
                 padding: 20px;
                 flex-direction: column;
-                gap: 10px;
-                align-items: center;
-                text-align: center;
+                gap: 15px;
             }
 
             .god-name {
                 font-size: 2.5rem;
-                letter-spacing: 6px;
             }
-
-                .god-name:hover {
-                    letter-spacing: 8px;
-                }
 
             .content-card {
                 padding: 30px 20px;
             }
 
             .forja-izq, .forja-der {
-                display: none; /* Oculta las espadas laterales para que no estorben la lectura en celular */
+                display: none;
             }
 
             .fondo-sol {
                 width: 300px;
                 height: 300px;
-                top: -50px;
             }
         }
     </style>
@@ -433,11 +356,10 @@
 
     <div class="navbar">
         <div class="brand">✦ GAMECOMUNITY</div>
-        <div><a href="#">← Volver a los Dioses</a></div>
+        <div><a href="dioses.html" class="nav-btn">← Volver</a></div>
     </div>
 
     <div class="main-container">
-
         <div class="header-section">
             <svg class="god-icon" viewBox="0 0 24 24">
                 <defs>
@@ -450,7 +372,6 @@
                 <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" opacity="0.15" />
                 <path d="M12 2C6.5 2 2 6.5 2 12C2 15.6 3.9 18.7 6.8 20.4L5 15H8L7 12H10L9 9H12L11 6H13L14 9H11L12 12H15L14 15H17L15.2 20.4C18.1 18.7 20 15.6 20 12C20 6.5 15.5 2 12 2Z" />
             </svg>
-
             <h1 class="god-name">Mordrak</h1>
             <div class="god-title">Dios del Fuego y de la Guerra</div>
         </div>
@@ -458,13 +379,11 @@
         <div class="content-card">
             <h2 class="card-title">La Furia Eterna</h2>
             <p class="card-text">
-                Mordrak es la encarnación del caos controlado. Dios del fuego que todo lo consume y de la guerra que forja imperios. Su power representa la ambición, la fuerza bruta y la victoria obtenida mediante la destrucción.
+                Mordrak es la encarnación del caos controlado. Dios del fuego que todo lo consume y de la guerra que forja imperios. Su poder representa la ambición, la fuerza bruta y la victoria obtenida mediante la destrucción.
             </p>
-
             <h3 class="sub-title">Ventajas de sus Seguidores</h3>
             <p class="status-text">— Esta sección se actualizará mas adelante —</p>
         </div>
-
     </div>
 
 </body>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alerion - Dios de la Sabiduría y las Sombras</title>
     <style>
-        /* --- [Tus Animaciones originales intactas] --- */
+        /* --- Animaciones originales --- */
         @keyframes entradaFluida {
             from {
                 opacity: 0;
@@ -121,7 +121,7 @@
             pointer-events: none;
             z-index: 0;
             opacity: 0.14;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%237e57c2' fill-opacity='1' d='M0,192L60,181.3C120,171,240,149,360,160C480,171,600,213,720,218.7C840,224,960,192,1080,170.7C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%237e57c2' fill-opacity='1' d='M0,192L60,181.3C120,171,240,149,360,160C480,171,600,213,720,218.7C840,224,960,192,1080,170.7C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
             background-size: cover;
             filter: blur(2px) drop-shadow(0 -20px 30px rgba(103,58,183,0.2));
         }
@@ -200,28 +200,37 @@
             justify-content: space-between;
             padding: 25px 40px;
             box-sizing: border-box;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
             z-index: 10;
+            align-items: center;
         }
 
             .navbar .brand {
                 font-weight: bold;
                 color: #ffffff;
                 text-shadow: 0 0 8px rgba(149,117,205,0.5);
+                letter-spacing: 2px;
             }
 
-            .navbar a {
-                color: #b39ddb;
-                text-decoration: none;
-                transition: all 0.3s ease;
-            }
+        /* Botón de volver optimizado */
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: rgba(149, 117, 205, 0.15);
+            border: 1px solid #9575cd;
+            border-radius: 8px;
+            color: #b39ddb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            touch-action: manipulation;
+        }
 
-                .navbar a:hover {
-                    color: #9575cd;
-                    text-shadow: 0 0 10px #9575cd;
-                }
+            .nav-btn:hover {
+                background: #9575cd;
+                color: #fff;
+            }
 
         .main-container {
             max-width: 900px;
@@ -238,7 +247,6 @@
             fill: url(#degradadoSombrasPremium);
             margin-bottom: 15px;
             animation: flotarIcono 5s ease-in-out infinite;
-            transition: transform 0.4s ease;
         }
 
         .god-name {
@@ -246,7 +254,6 @@
             letter-spacing: 12px;
             margin: 0;
             text-transform: uppercase;
-            font-weight: 300;
             color: #ffffff;
             text-shadow: 0 0 20px rgba(103, 58, 183, 0.4);
         }
@@ -257,7 +264,6 @@
             margin-top: 15px;
             color: #b39ddb;
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
         }
 
         .content-card {
@@ -278,7 +284,6 @@
             font-size: 1.4rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-top: 0;
             margin-bottom: 25px;
             border-bottom: 1px solid rgba(149, 117, 205, 0.2);
             padding-bottom: 15px;
@@ -306,21 +311,19 @@
             margin-top: 30px;
         }
 
-        /* --- MEDIA QUERY PARA MÓVILES (Mantiene los efectos) --- */
         @media (max-width: 600px) {
             .navbar {
-                padding: 15px;
-                font-size: 0.7rem;
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
             }
 
             .god-name {
                 font-size: 2.2rem !important;
-                letter-spacing: 5px !important;
             }
 
             .content-card {
                 padding: 25px !important;
-                margin: 0 10px;
             }
 
             .fondo-eclipse {
@@ -343,7 +346,7 @@
 
     <div class="navbar">
         <div class="brand">✦ GAMECOMUNITY</div>
-        <div><a href="#">← Volver</a></div>
+        <div><a href="dioses.html" class="nav-btn">← Volver</a></div>
     </div>
 
     <div class="main-container">

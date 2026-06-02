@@ -69,7 +69,6 @@
             }
         }
 
-        /* --- Configuración del Cuerpo y Lienzo Fantástico --- */
         body {
             margin: 0;
             padding: 0;
@@ -84,7 +83,6 @@
             position: relative;
         }
 
-        /* --- Elementos de la Naturaleza y Luna de Fondo --- */
         .fondo-luna {
             position: absolute;
             top: -150px;
@@ -100,15 +98,6 @@
             opacity: 0.45;
         }
 
-        /* Ajuste de luna en móviles para que no cause scroll horizontal */
-        @media (max-width: 640px) {
-            .fondo-luna {
-                width: 350px;
-                height: 350px;
-                top: -100px;
-            }
-        }
-
         .fondo-naturaleza {
             position: fixed;
             bottom: -10px;
@@ -118,7 +107,7 @@
             pointer-events: none;
             z-index: 0;
             opacity: 0.18;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2380cbc4' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,117.3C960,107,1056,149,1152,149.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3Cpath%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2380cbc4' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,117.3C960,107,1056,149,1152,149.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
             background-size: cover;
             filter: blur(2px) drop-shadow(0 -20px 30px rgba(128,203,196,0.15));
         }
@@ -147,14 +136,6 @@
             transform: rotate(-15deg);
         }
 
-        /* Ocultar marcos laterales estáticos en móviles pequeños para ganar espacio */
-        @media (max-width: 768px) {
-            .ramas-marcoreft, .ramas-marcoright {
-                display: none;
-            }
-        }
-
-        /* Partículas */
         .particula {
             position: absolute;
             background: radial-gradient(circle, rgba(165,214,167,0.8) 0%, transparent 70%);
@@ -200,317 +181,166 @@
             animation-delay: 7s;
         }
 
-        /* --- Interfaz Principal (Menú) Adaptable --- */
         .navbar {
             width: 100%;
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 24px;
+            padding: 25px 40px;
             box-sizing: border-box;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
             z-index: 10;
         }
 
-        @media (min-width: 640px) {
-            .navbar {
-                padding: 25px 40px;
-                font-size: 0.85rem;
+            .navbar .brand {
+                font-weight: bold;
+                color: #ffffff;
+                text-shadow: 0 0 8px rgba(128, 203, 196, 0.4);
                 letter-spacing: 2px;
             }
-        }
 
-        .navbar .brand {
-            font-weight: bold;
-            color: #ffffff;
-            text-shadow: 0 0 8px rgba(128, 203, 196, 0.4);
-        }
-
-        .navbar a {
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: rgba(128, 203, 196, 0.1);
+            border: 1px solid #80cbc4;
+            border-radius: 8px;
             color: #80cbc4;
             text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             transition: all 0.3s ease;
+            touch-action: manipulation;
         }
 
-            .navbar a:hover {
-                color: #a5d6a7;
-                text-shadow: 0 0 10px #a5d6a7;
+            .nav-btn:hover {
+                background: #80cbc4;
+                color: #041211;
             }
 
-        /* --- Presentación de la Diosa --- */
         .main-container {
             max-width: 900px;
             width: 100%;
             text-align: center;
-            padding: 20px 16px 80px 16px;
+            padding: 40px 20px 100px 20px;
             z-index: 1;
             box-sizing: border-box;
         }
 
-        @media (min-width: 640px) {
-            .main-container {
-                padding: 40px 20px 100px 20px;
-            }
-        }
-
-        .header-section {
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        @media (min-width: 640px) {
-            .header-section {
-                margin-bottom: 60px;
-            }
-        }
-
         .god-icon {
-            width: 75px;
-            height: 75px;
+            width: 90px;
+            height: 90px;
             fill: url(#degradadoVerdeLuna);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             animation: flotarIcono 5s ease-in-out infinite;
-            transition: transform 0.4s ease;
         }
 
-        @media (min-width: 640px) {
-            .god-icon {
-                width: 90px;
-                height: 90px;
-                margin-bottom: 15px;
-            }
-        }
-
-        .god-icon:hover {
-            transform: scale(1.1) rotate(15deg);
-        }
-
-        /* Nombre responsivo para evitar desbordamiento */
         .god-name {
-            font-size: 2.5rem;
-            letter-spacing: 6px;
+            font-size: 4rem;
+            letter-spacing: 12px;
             margin: 0;
             text-transform: uppercase;
-            font-weight: 300;
             color: #ffffff;
             text-shadow: 0 0 20px rgba(128, 203, 196, 0.4);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            word-wrap: break-word;
-        }
-
-        @media (min-width: 480px) {
-            .god-name {
-                font-size: 3rem;
-                letter-spacing: 8px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .god-name {
-                font-size: 4rem;
-                letter-spacing: 12px;
-            }
-        }
-
-        .god-name:hover {
-            color: #e8f5e9;
-        }
-
-        @media (min-width: 768px) {
-            .god-name:hover {
-                letter-spacing: 16px;
-                text-shadow: 0 0 40px rgba(165, 214, 167, 0.8), 0 0 15px rgba(255, 255, 255, 0.6);
-            }
         }
 
         .god-title {
-            font-size: 0.85rem;
-            letter-spacing: 4px;
-            margin-top: 12px;
+            font-size: 0.95rem;
+            letter-spacing: 6px;
+            margin-top: 15px;
             color: #80cbc4;
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(7, 31, 26, 0.8);
         }
 
-        @media (min-width: 640px) {
-            .god-title {
-                font-size: 0.95rem;
-                letter-spacing: 6px;
-                margin-top: 15px;
-            }
-        }
-
-        /* --- Tarjeta de Lore Adaptable --- */
         .content-card {
             background: rgba(4, 16, 14, 0.8);
             border: 1px solid rgba(128, 203, 196, 0.2);
             border-radius: 16px;
-            padding: 24px;
+            padding: 50px;
             max-width: 650px;
             margin: 0 auto;
             text-align: left;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             animation: fadeIn 1.5s ease-out;
-            box-sizing: border-box;
-        }
-
-        @media (min-width: 640px) {
-            .content-card {
-                padding: 50px;
-            }
-        }
-
-        .content-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(165, 214, 167, 0.15) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            pointer-events: none;
-        }
-
-        .content-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(165, 214, 167, 0.5);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(128, 203, 196, 0.25);
-        }
-
-        @media (min-width: 640px) {
-            .content-card:hover {
-                transform: translateY(-8px);
-            }
-        }
-
-        .content-card:hover::before {
-            opacity: 1;
         }
 
         .card-title {
             color: #b2dfdb;
-            font-size: 1.2rem;
-            letter-spacing: 2px;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-top: 0;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 1px solid rgba(128, 203, 196, 0.2);
-            padding-bottom: 12px;
-            transition: all 0.4s ease;
-        }
-
-        @media (min-width: 640px) {
-            .card-title {
-                font-size: 1.4rem;
-                letter-spacing: 3px;
-                margin-bottom: 25px;
-                padding-bottom: 15px;
-            }
-        }
-
-        .content-card:hover .card-title {
-            color: #a5d6a7;
-            text-shadow: 0 0 15px rgba(165, 214, 167, 0.5);
-        }
-
-        @media (min-width: 640px) {
-            .content-card:hover .card-title {
-                padding-left: 8px;
-            }
+            padding-bottom: 15px;
         }
 
         .card-text {
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 1rem;
+            line-height: 1.8;
             color: #b0bec5;
-            transition: color 0.4s ease;
-        }
-
-        @media (min-width: 640px) {
-            .card-text {
-                font-size: 1rem;
-                line-height: 1.8;
-            }
-        }
-
-        .content-card:hover .card-text {
-            color: #cfd8dc;
         }
 
         .sub-title {
             color: #80cbc4;
-            font-size: 1rem;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-top: 25px;
-            margin-bottom: 12px;
-        }
-
-        @media (min-width: 640px) {
-            .sub-title {
-                font-size: 1.1rem;
-                margin-top: 35px;
-                margin-bottom: 15px;
-            }
+            margin-top: 35px;
         }
 
         .status-text {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-style: italic;
             color: #546e7a;
             text-align: center;
-            margin-top: 25px;
-            letter-spacing: 1px;
-            transition: color 0.4s ease;
+            margin-top: 30px;
         }
 
-        @media (min-width: 640px) {
-            .status-text {
-                font-size: 0.85rem;
-                margin-top: 30px;
+        @media (max-width: 640px) {
+            .navbar {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
             }
-        }
 
-        .content-card:hover .status-text {
-            color: #a5d6a7;
+            .god-name {
+                font-size: 2.2rem !important;
+            }
+
+            .content-card {
+                padding: 25px !important;
+            }
+
+            .fondo-luna {
+                width: 350px;
+                height: 350px;
+            }
+
+            .ramas-marcoreft, .ramas-marcoright {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Elementos Místicos del Fondo -->
     <div class="fondo-luna"></div>
     <div class="fondo-naturaleza"></div>
     <div class="ramas-marcoreft"></div>
     <div class="ramas-marcoright"></div>
-
-    <!-- Partículas ascendentes -->
     <div class="particula p1"></div>
     <div class="particula p2"></div>
     <div class="particula p3"></div>
     <div class="particula p4"></div>
 
-    <!-- Barra de Navegación -->
     <div class="navbar">
         <div class="brand">✦ GAMECOMUNITY</div>
-        <div><a href="dioses.html">← Volver a los Dioses</a></div>
+        <div><a href="dioses.html" class="nav-btn">← Volver</a></div>
     </div>
 
-    <!-- Contenedor Principal -->
     <div class="main-container">
-
         <div class="header-section">
-            <!-- Icono: Vectorizado de Luna Llena/Creciente entrelazada con brotes -->
             <svg class="god-icon" viewBox="0 0 24 24">
                 <defs>
                     <linearGradient id="degradadoVerdeLuna" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -521,23 +351,18 @@
                 <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" opacity="0.25" />
                 <path d="M12 2C14.76 2 17.26 3.12 19.07 4.93C17.26 6.74 16 9.24 16 12C16 14.76 17.26 17.26 19.07 19.07C17.26 20.88 14.76 22 12 22C6.48 22 2 17.52 2 12S6.48 2 12 2M13 7C11.3 7 10 8.3 10 10C10 11.2 10.7 12.2 11.7 12.7V15.5H14.3V12.7C15.3 12.2 16 11.2 16 10C16 8.3 14.7 7 13 7Z" />
             </svg>
-
             <h1 class="god-name">Seraphyne</h1>
             <div class="god-title">Diosa de la Luna y la Naturaleza</div>
         </div>
 
-        <!-- Tarjeta de Contenido / Lore -->
         <div class="content-card">
             <h2 class="card-title">La Guardiana del Ciclo Eterno</h2>
             <p class="card-text">
                 Seraphyne es la fuerza que guía las mareas, el crecimiento de los bosques antiguos y los secretos nocturnos. Señora de la luz plateada y la flora floreciente, representa el equilibrio de la vida silvestre, la regeneración, la magia lunar y la protección absoluta del entorno natural.
             </p>
-
             <h3 class="sub-title">Ventajas de sus Seguidores</h3>
             <p class="status-text">— Esta sección se actualizará más adelante —</p>
         </div>
-
     </div>
-
 </body>
 </html>
